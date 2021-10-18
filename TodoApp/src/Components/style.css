@@ -1,0 +1,186 @@
+*{
+    box-sizing: border-box;
+}
+.btn{
+    padding: 10px 20px;
+    margin: 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+.btn-primary{
+    background: #00f;
+}
+.btn-default{
+    background: #0f0;
+}
+.input-div{
+    width: 100%;
+    margin: 30px 0px;
+}
+.input-element{
+    width: 100%;
+    font-size: 15px;
+    padding: 10px;
+    margin: 20px 0;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-bottom: 0;
+}
+.input-error{
+    font-weight: 600;
+    color: #f11;
+}
+.input-lable{
+    display: block;
+    font-size: 25px;
+    font-weight: 800;
+}
+/* -----------------------------------------------------------------
+                    Modale Style
+----------------------------------------------------------------- */
+.modal-div{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border: 3px solid black;
+    transform: translate(-50%,-50%);
+    font-weight: 600;
+    padding: 10px 30px;
+    border-radius: 20px;
+    width: 500px;
+    backdrop-filter: blur(20px);
+}
+.modale-header{
+    /* text-align: center; */
+    font-size: 20px;
+    /* padding: 5px; */
+    border-bottom:1px solid black ;
+}
+.modale-body{
+    font-weight: 500;
+    padding : 10px;
+    font-size: 20px;
+    overflow: auto;
+}
+.modale-footer{
+    border-top:1px solid black ;
+    /* padding: 10px 20px; */
+    text-align: center;
+}
+.modale-close{
+    position: absolute; 
+    text-align: center;
+    top: 00;
+    right: 0px;
+    display: none;
+    bottom: 0;
+    width: 50px;
+    /* font-size: 40px; */
+    margin: 10px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .5);
+    outline: none;
+    border-radius: 10px;
+}
+/* -----------------------------------------------------------------
+                Task List Style
+----------------------------------------------------------------- */
+.Main-heading{
+    text-align: center;
+}
+.taskList-div{
+    /* width: 500px; */
+    /* display: flex; */
+    /* text-align: center; */
+    /* align-items: center; */
+    margin: 20px auto;
+    text-align: center;
+}
+.list-div{
+    text-align: center;
+}
+.task-notes{
+    vertical-align: top;
+    position: relative;
+    text-align: left;
+    border: 1px solid black;
+    border-left: 10px solid #0f0;
+    border-radius: 10px;
+    padding: 10px 15px 0; 
+    width: 400px;
+    display: inline-block;
+    margin: 10px 20px;
+}
+.task-notes h1{
+    font-size: 25px;
+    padding: -20px 0;
+}
+.task-notes p{
+    border-top:1px solid #000 ;
+    overflow: auto;
+    padding-top: 10px;
+}
+.task-notes:hover .modale-close{
+    display: block;
+}
+.task-lable-black{
+    border-left-color:#000;
+}
+.task-lable-red{
+    border-left-color:#f33;
+}
+.task-lable-yellow{
+    border-left-color:#ff0;
+}
+.task-lable-green{
+    border-left-color:#0f0;
+}
+.task-lable-blue{
+    border-left-color:#00f;
+}
+/* -----------------------------------------------------------------------
+                Color Selector
+----------------------------------------------------------------------- */
+.color-box{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 5px 10px;
+    display: inline-block;
+    /* border: 1px solid #fff; */
+    vertical-align: middle;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.selector{
+    width: 40px;
+    height: 40px;
+    border: 3px solid #000;
+}
+.color-box-black{
+    background-color :#000;
+}
+.color-box-red{
+    background-color:#f33;
+}
+.color-box-yellow{
+    background-color:#ff0;
+}
+.color-box-green{
+    background-color:#0f0;
+}
+.color-box-blue{
+    background-color:#00f;
+}
+
+.color-lable-selector{
+    margin: 10px 0;
+    padding-top: 10px;
+}
