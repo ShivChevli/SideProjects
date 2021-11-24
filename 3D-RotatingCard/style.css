@@ -1,0 +1,139 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+        }
+
+        .box {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            animation-name: animation3;
+            animation-duration: 30s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+
+        }
+
+        .box span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: center;
+            transform-style: preserve-3d;
+            transform: rotateY(calc(var(--i) * 60deg)) rotateX(calc(var(--j) * 60deg)) translateZ(300px);
+        }
+
+        @keyframes animation1 {
+            0% {
+                transform: perspective(1000px) rotateY(0deg) rotatez(0deg);
+            }
+
+            50% {
+                transform: perspective(1000px) rotateY(180deg) rotateX(60deg);
+            }
+
+            100% {
+                transform: perspective(1000px) rotateY(360deg) rotateX(0deg);
+            }
+        }
+
+        @keyframes animation2 {
+            0% {
+                transform: perspective(1000px) rotateY(0deg);
+            }
+
+            100% {
+                transform: perspective(1000px) rotateY(360deg);
+            }
+        }
+
+        @keyframes animation3 {
+            0% {
+                transform: perspective(1000px) rotateY(0deg) rotatez(0deg);
+            }
+
+            100% {
+                transform: perspective(1000px) rotateY(360deg) rotateX(360deg);
+            }
+        }
+
+        .box span img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .controler {
+            position: fixed;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .controler button {
+            display: block;
+            margin: 20px 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: 900;
+            cursor: pointer;
+            border-radius: 10px;
+            color: #f0a00a;
+        }
+
+        h1 {
+            position: fixed;
+            top: 0;
+            color: #fff;
+            margin-top: 1%;
+        }
+
+        .Message {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            color: red;
+            font-size: 3em;
+            justify-content: center;
+            align-items: center;
+            display: none;
+        }
+
+        @media screen and (min-width:0) and (max-width:768px) {
+            .box {
+                display: none;
+            }
+
+            .Message {
+                display: flex;
+            }
+        }
+
+        @media screen and (min-width:0) and (max-width:1200px) {
+            .controler {
+                top: 100%;
+                right: 50%;
+                width: 100%;
+                text-align: center;
+                transform: translate(50%, -110%);
+            }
+
+            .controler button {
+                display: inline-block;
+            }
+        }

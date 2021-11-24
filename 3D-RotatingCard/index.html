@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D-Rotating Card Effects</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 id="heading">Animation Effect 1 </h1>
+    <div class="box">
+        <span style="--i:1;--j:0;"><img src="Img/img1.jpg" alt=""></span>
+        <span style="--i:2;--j:0;"><img src="Img/img2.jpg" alt=""></span>
+        <span style="--i:3;--j:0;"><img src="Img/img3.jpg" alt=""></span>
+        <span style="--i:4;--j:0;"><img src="Img/img4.jpg" alt=""></span>
+        <span style="--i:5;--j:0;"><img src="Img/img5.jpg" alt=""></span>
+        <span style="--i:6;--j:0;"><img src="Img/img6.jpg" alt=""></span>
+    </div>
+    <div class="Message">
+        Device width is not Sufficient.<br>
+        <br>Please Turn on Destop mode.
+    </div>
+
+    <div class="controler">
+        <button data-animation="1">Animation 1</button>
+        <button data-animation="2">Animation 2</button>
+        <button data-animation="3">Animation 3</button>
+    </div>
+</body>
+<script>
+    console.log(document.querySelector(".box").style.animationName = 'animation1');
+    document.querySelectorAll('button').forEach(button => {
+        button.onclick = function () {
+            document.querySelector(".box").style.animationName = "animation" + this.dataset.animation;
+            console.log(document.getElementById('heading').innerHTML = "Animation Effect " + this.dataset.animation);
+            console.log(button.dataset.animation);
+        }
+    })
+</script>
+
+</html>
