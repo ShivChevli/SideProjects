@@ -1,0 +1,6 @@
+# # Remove Database History from Git traking
+
+# /Database/
+
+# #Remove binary Executable File form Git tracking History
+# *exe

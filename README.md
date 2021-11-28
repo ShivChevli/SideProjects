@@ -6,7 +6,7 @@ This Repository contains all my small side projects which I have created during 
 <br>
 List Of Projects :- 
 <ul>
-    <li>Web calculator</li>
-    <li>ToDo List</li>
-    <li>3D-RotatingCard</li>
+    <li><a href="https://shivchevli.github.io/SideProjects/WebCalculator/">Web calculator</a></li>
+    <li><a href="https://github.com/ShivChevli/SideProjects/tree/main/TodoApp">ToDo List</a></li>
+    <li><a href="https://shivchevli.github.io/SideProjects/3D-RotatingCard/"> 3D-RotatingCard</a></li>
 </ul>
