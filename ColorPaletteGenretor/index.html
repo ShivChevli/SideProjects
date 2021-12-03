@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Plate Creator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Color Palette Generator</h1>
+    </header>
+    <!-- Main Color plate section -->
+    <main>
+        <div class="plate">
+            <label> #000000</label>
+            <input type="color" class="edit-color" value="#000000">
+            <span class="closeBTN">x<span>
+        </div>
+        <div class="plate">
+            <label> #3D0000</label>
+            <input type="color" class="edit-color" value="#3D0000">
+            <span class="closeBTN">x<span>
+        </div>
+        <div class="plate">
+            <label> #950101</label>
+            <input type="color" class="edit-color" value="#950101">
+            <span class="closeBTN">x<span>
+        </div>
+        <div class="plate">
+            <label> #FF0000</label>
+            <input type="color" class="edit-color" value="#FF0000">
+            <span class="closeBTN">x<span>
+        </div>
+    </main>
+    <!-- For Image Download  -->
+    <section class="ScreenShot-display">
+        <span class="close-section">x<span>
+                <a href="" id="download" class="btn btn-danger" download>
+                    Download
+                </a>
+    </section>
+    <!-- Controlers -->
+    <footer>
+        <h3>Select Color </h3>
+        <form action="">
+            <input type="color" id="ColorAdd" name="color">
+            <input type="submit" class="btn btn-primary px-4 my-2 mx-3" value="Add">
+            <!-- <input type="search"> -->
+            <button class="btn btn-danger" type="button" onclick="capture()">Save As Image</button>
+        </form>
+    </footer>
+    <div class="message">
+        <p> Click To copy Code</p>
+    </div>
+</body>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script src="JS/script.js">
+</script>
+
+</html>
