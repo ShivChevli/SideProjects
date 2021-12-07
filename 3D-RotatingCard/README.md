@@ -13,3 +13,6 @@ To get the code of these effects run the following command in CMD.
 ```bash
     git clone https://github.com/ShivChevli/SideProjects.git
 ```
+
+
+![Layout](img/3D_RotatingCard.jpeg)
