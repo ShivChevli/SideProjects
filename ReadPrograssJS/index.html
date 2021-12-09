@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Indicatore - demo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body id="body">
+    <div class="heading-div">
+        <h1>Scroll Indicatore Demo Page</h1>
+        <a href="js/ReadProgressJS.min.js" class="download-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="64" height="64" viewBox="0 0 172 172"
+                style=" fill:#000000;">
+                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                    stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                    font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                    style="mix-blend-mode: normal">
+                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                    <g fill="#cccccc">
+                        <path
+                            d="M49.33885,12.09375c-5.93334,0.02885 -10.72319,4.85598 -10.70604,10.78937v13.73407h50.90634c1.48451,0 2.84366,1.21448 2.84366,2.69865v53.88451c0,1.48451 -1.35915,2.54184 -2.84366,2.54184h-50.90634v53.37469c-0.01715,5.93339 4.77269,10.76052 10.70604,10.78937h87.18825c5.92762,0 10.61353,-4.86175 10.61353,-10.78937v-100.07001h-26.33173c-2.47569,0.00166 -4.84922,-0.98683 -6.59189,-2.74527c-1.74267,-1.75844 -2.70973,-4.14079 -2.68576,-6.61636v-27.59149zM116.90625,16.07317v23.61208c-0.02607,1.05052 0.37397,2.0669 1.10908,2.81782c0.7351,0.75092 1.74274,1.17251 2.79357,1.16881h22.80176zM24.85938,41.99219v48.375h62.14844v-48.375zM55.84436,47.96689c1.45292,0.04259 2.60868,1.23264 2.60876,2.68619v24.70584l8.25803,-8.00345c1.06896,-1.01166 2.7528,-0.97531 3.77712,0.08152c1.02432,1.05684 1.00803,2.74099 -0.03653,3.77782l-12.81549,12.42181c-1.04238,1.01051 -2.69886,1.01051 -3.74124,0l-12.81549,-12.42181c-0.70291,-0.66522 -0.99386,-1.657 -0.76175,-2.59653c0.23212,-0.93953 0.95145,-1.68171 1.88327,-1.94307c0.93182,-0.26136 1.9322,-0.00153 2.61906,0.68025l8.25803,8.00345v-24.70584c0.00004,-0.7264 0.29413,-1.42184 0.81525,-1.92788c0.52112,-0.50604 1.2249,-0.77959 1.95098,-0.7583zM53.73229,108.50781h34.7295c1.48427,0 2.6875,1.20323 2.6875,2.6875c0,1.48427 -1.20323,2.6875 -2.6875,2.6875h-34.7295c-1.48427,0 -2.6875,-1.20323 -2.6875,-2.6875c0,-1.48427 1.20323,-2.6875 2.6875,-2.6875zM53.73229,122.95313h78.40138c1.48427,0 2.6875,1.20323 2.6875,2.6875c0,1.48427 -1.20323,2.6875 -2.6875,2.6875h-78.40138c-1.48427,0 -2.6875,-1.20323 -2.6875,-2.6875c0,-1.48427 1.20323,-2.6875 2.6875,-2.6875zM53.73229,137.39844h78.40138c1.48427,0 2.6875,1.20323 2.6875,2.6875c0,1.48427 -1.20323,2.6875 -2.6875,2.6875h-78.40138c-1.48427,0 -2.6875,-1.20323 -2.6875,-2.6875c0,-1.48427 1.20323,-2.6875 2.6875,-2.6875z">
+                        </path>
+                    </g>
+                </g>
+            </svg>
+        </a>
+    </div>
+</body>
+<script>
+    let body = document.getElementById("body");
+    document.addEventListener("DOMContentLoaded", function () {
+        var i = 0;
+        for (let i = 0; i <= 50; i++) {
+            addBlock(i)
+        }
+    });
+    function addBlock(b) {
+        let div = document.createElement("div");
+        div.classList.add("block");
+        let h1 = document.createElement("h1");
+        h1.innerText = `#${b}`;
+        let p = document.createElement("p");
+        p.innerHTML = "lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur repellat id, laudantium labore eius placeat maiores iure reprehenderit, doloremque cum excepturi nostrum facilis vero beatae possimus aspernatur provident quam repellendus."
+        div.appendChild(h1);
+        div.appendChild(p);
+        body.appendChild(div);
+    }
+</script>
+<script src="js/script.js"></script>
+
+</html>
