@@ -10,4 +10,5 @@ List Of Projects :-
     <li><a href="https://github.com/ShivChevli/SideProjects/tree/main/TodoApp">ToDo List</a></li>
     <li><a href="https://shivchevli.github.io/SideProjects/3D-RotatingCard/"> 3D-RotatingCard</a></li>
     <li><a href="https://shivchevli.github.io/SideProjects/ColorPaletteGenretor/">Color Palette Generator</a></li>
+    <li><a href="https://shivchevli.github.io/SideProjects/ReadPrograssJS/">Read Prograss indicator using JS</a></li>
 </ul>
