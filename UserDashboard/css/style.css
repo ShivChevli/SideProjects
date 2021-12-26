@@ -1,0 +1,272 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Readex Pro', sans-serif;
+}
+/* 
+3700B3
+5600E8
+    6D1CFF
+
+    292929
+    */
+:root{
+    --text-color : #fff;
+    --bg-color-main : #610CFF;
+    /* --bg-color-main : #985EFF; */
+    /* --item : rgba(210,210,210,0.5); */
+    --item : #bbbbbb;
+    --text-alter : #000;
+    --bg-color-alter : #fff;
+}
+menu{
+    position: fixed;
+    top: 0px;
+    left: 0;
+    height: 100vh;
+    width: 15%;
+    min-width: 300px;
+    background: var(--bg-color-main);
+    color: var(--text-color);
+}
+.heading{
+    margin: 30px;
+    padding-bottom: 20px;
+    text-align: center;
+    overflow: hidden;
+}
+/* menu{
+    display: none;
+} */
+.menue-option-box{
+    margin: 50px 0;
+    height: 500px;
+}
+ul{
+    list-style: none;
+    padding: 10px 20px;
+}
+ul li{
+    margin: 10px 0;
+}
+ul li a{
+    display: block;
+    /* text-align: center; */
+    text-decoration: none;
+    color: var(--text-color);
+    /* border: 1px solid black; */
+    padding: 10px;
+}
+.active{
+    border-bottom:1px solid var(--text-color);
+}
+.list-icon{
+    padding: 0;
+    display: inline-block;
+    vertical-align: baseline;
+    height: 40px;
+    overflow: hidden;
+    /* margin-left: 20px; */
+}
+.list-text{
+    display: inline-block;
+    vertical-align: baseline;
+    margin: 0px 10px;
+    font-size: 22px;
+    height: 35px;
+    overflow: hidden;
+}
+svg{
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    fill: var(--text-color);
+}
+
+.menue-footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding-left: 50px;
+    display: flex;
+    margin: 0;
+    height: 100px;
+    width: 300px;
+}
+.button-remove{
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    background: transparent;
+    cursor: pointer;
+    padding: 15px;
+}
+
+
+/* --------------------------------------------------------------------------------
+                    Main Sections
+-------------------------------------------------------------------------------- */
+main{
+    position: static;
+    height: 100vh;
+    /* background: #f00; */
+    padding-left: 300px;
+    background: var(--bg-color-alter);
+    overflow-x: hidden;
+}
+main h1{
+    margin: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--text-alter);
+    color: var(--text-alter);
+}
+main section{
+    vertical-align: top;
+    padding: 20px 10px;
+    display: inline-block;
+    padding: 50px;
+    /* border-radius: 20px; */
+    border-right: 1px solid var(--text-alter);
+    width: 45%;
+    max-width: 500px;
+    min-height: 500px;
+    max-height: 600px;
+}
+main .section2{
+    margin-left: 20px;
+    width: 50%;
+    max-width: 100%;
+    border-right: none ;
+}
+#date{
+    float: right;
+}
+#new{
+    position: absolute;
+    bottom: 50px;
+    right: 100px;
+    border-radius: 50%;
+    color: var(--text-color);
+    background: var(--bg-color-main); 
+    overflow: visible;
+}
+#new svg{
+    width: 30px;
+    height: 30px;
+}
+.help{
+    background: var(--item);
+    color: var(--text-alter);
+    position: absolute;
+    bottom: 110%;
+    left: -40%;
+    width: 100px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: none;
+    transition: 1000;
+}
+#new:hover .help{
+    transition: 1s;
+    display: block;
+}
+.single-container{
+    margin-top: 30px ;
+    padding-top: 0;
+    border: none;
+    width: 90%;
+    max-width: 100%;
+}
+.toolbox{
+    padding: 10px 50px;
+    margin-bottom: 0;
+}
+.search-bar{
+    display: inline-block;
+    width: 70%;
+}
+.search-bar .form-control{
+    width: 100%;
+}
+.button-style-1{
+    overflow: hidden;
+    max-width: 100px;
+    font-size: 15px;
+    border-radius: 20px;
+    margin: 0 10px 0 0;
+    padding: 10px 20px;
+    background-color: var(--bg-color-main);
+}
+#multi-section{
+    display: none;
+}
+#section1 .search-bar{
+    width: 100%;
+}
+/* ------------------------------------------------------------------------------
+                        Section 1
+------------------------------------------------------------------------------ */
+.suggetion-container{
+    padding: 20px 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 500px;
+    max-height: 550px;
+}
+.suggetion-list-item{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    background:  var(--item);
+    margin: 10px 0;
+    padding: 10px 20px 15px;
+    border-radius: 5px;
+}
+.suggetion-list-item .text{
+    grid-column: 1 / 12;
+    /* display: inline-flexbox; */
+    /* width: 80%; */
+    display: inline-block;
+    color: var(--text-alter);
+}
+.suggetion-list-item .add{
+    grid-column: 12 / 12;
+    display: inline-flexbox;
+    /* width: 18%; */
+    margin: 0 20px;
+    text-align: right;
+    padding: 0 !important;
+    padding-top: 2px !important ;
+}
+.suggetion-list-item .add svg{
+    width: 20px;
+    height: 20px;
+    fill: var(--text-alter);
+}
+/* ======================================================================
+                    Form
+====================================================================== */
+.form-element-box{
+    margin: 20px;
+    margin-top: 0;
+}
+.form-element-box .from-lable{
+    display: block;
+    margin: 10px;
+    font-size: 18px;
+    color: var(--text-alter);
+}
+.form-control{
+    border-radius: 5px;
+    border: 1px solid var(--text-alter);
+    padding: 10px 20px;
+}
+.from-element{
+    width: 100%;
+    display: block;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: var(--text-alter);
+    background-color: var(--bg-color-alter);
+}
