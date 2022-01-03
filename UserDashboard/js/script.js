@@ -36,14 +36,26 @@ document.addEventListener("DOMContentLoaded", function () {
     const date = new Date();
     document.getElementById("date").innerText = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
 
-    document.querySelectorAll(".add").forEach(btn => {
+    document.querySelectorAll(".text")
+        .forEach(btn => {
+            btn.onclick = function () {
+                console.log(btn);
+                document.getElementById("single-section").style.display = "none";
+                document.getElementById("multi-section").style.display = "block";
+            }
+        })
+
+    document.querySelector(".edit").onclick = function () {
+        document.querySelector("#detailBox").style.display = "none";
+        document.querySelector("#updateBox").style.display = "inline-block";
+    }
+
+    document.querySelectorAll(".cancel-btn").forEach(btn => {
         btn.onclick = function () {
-            console.log(btn);
-            document.getElementById("single-section").style.display = "none";
-            document.getElementById("multi-section").style.display = "block";
+            document.getElementById("single-section").style.display = "block";
+            document.getElementById("multi-section").style.display = "none";
         }
     })
-
 })
 
 function createSuggestions(data) {

@@ -198,8 +198,20 @@ main .section2{
     padding: 10px 20px;
     background-color: var(--bg-color-main);
 }
-#multi-section{
+#multimulti-section{
     display: none;
+}
+
+#multi-section section{
+    padding: 10px 30px;
+}
+
+.section2 h1{
+    margin: 10px 0;
+}
+
+#section1 .toolbox{
+    padding: 10px;
 }
 #section1 .search-bar{
     width: 100%;
@@ -228,6 +240,7 @@ main .section2{
     /* width: 80%; */
     display: inline-block;
     color: var(--text-alter);
+    cursor: pointer;
 }
 .suggetion-list-item .add{
     grid-column: 12 / 12;
