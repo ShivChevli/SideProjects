@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to K.K. Creation</title>
+
+    <!-- ========================== Asset Css ========================== -->
+    <link rel="stylesheet" href="asset/vendor/bootstrap/css/bootstrap.css">
+
+    <!-- ======================== Custom CSS ======================== -->
+    <link rel="stylesheet" href="asset/css/singin.css">
+
+</head>
+<body>
+    <main class="container box">
+        <div class="headding pb-4 mb-3">    
+            <h1 class="">Sign In </h1>
+            <sub>(All Fild are requrid)</sub>
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="name">Name :-</label>
+                <input type="text" required class="form-control" name="name" id="name" aria-describedby="helpId1" placeholder="Enter Full Name">
+                <small id="helpId1" class="form-text text-muted">This Name is futher Use In Genrat Bills</small>
+            </div>
+            <div class="form-group">
+                <label for="M_number">Mobile Number :-</label>
+                <input type="text" required id="M_number" class="form-control" maxlength="13" minlength="13" placeholder="00 1234567890">
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail Id :- </label>
+                <input type="email" id="email" class="form-control" placeholder="Hint:- adcd@xyz.pq">
+            </div>
+            <div class="form-group">
+                <label for="pass">Enter Password :-</label>
+                <input type="password" required class="form-control" name="Password" id="pass" aria-describedby="helpId2" placeholder="Password">
+                <small id="helpId2" class="form-text text-muted">Your Password Must be grater than 7 chartor and it contain atlist one small char. , capital Char., Spcial Char. and numarical</small>  
+            </div>
+            
+            <div class="form-group">
+                <label for="c_pass">Renter Password :-</label>
+                <input type="password" required class="form-control" name="Password" id="c_pass" aria-describedby="helpId3" placeholder="Password">
+                <small id="helpId2" class="form-text text-muted">Enter same as Above </small>  
+            </div>
+        
+            <input type="submit" value="Create Account" name="submit" class="btn btn-primary px-3 mr-4">
+            <input type="reset" value="Reset" name="reset" class="btn btn-dark px-3">
+        </form>
+        <p class="text-center">Have Alrady Accunt?<a href="LogIn.html">Click Here</a></p>
+    </main>
+</body>
+</html>

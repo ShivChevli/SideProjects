@@ -1,0 +1,79 @@
+*{box-sizing: border-box;margin: 0;padding: 0;}
+body{
+    width: 100%;
+    height: 100vh;
+    background: url('../img/p1.jpeg');
+    background-size: cover;
+    animation: sl 15s infinite;
+    overflow-x: hidden;
+}
+.box{
+    width: 500px;
+    padding: 50px;
+    background: rgba(255, 255, 255, .7);
+    border: 1px solid black;
+}
+.headding{
+    margin: 5px auto;
+    display: block;
+    border-bottom: 2px solid black ;
+}
+label,p{
+    font-size: 18px;
+    font-weight: 700;
+}
+input{
+    border: .5px solid black !important;
+}
+p{
+    display: block;
+    border-top: 2px solid black ;
+    padding-top: 15px;
+    margin-top: 20px;
+}
+small{
+    font-size: 13px;
+    font-weight: 500;
+    color: black !important;
+}
+@keyframes sl {
+    0% { background-image: url('../img/p1.jpeg'); }
+    25% { background-image: url('../img/p1.jpeg'); }
+    50% { background-image: url('../img/p2.jpeg'); }
+    75% { background-image: url('../img/p2.jpeg'); }
+    100%{ background-image: url('../img/p1.jpeg');}
+}
+.logoin_Background{
+    background-image: url('../img/login.jpg') !important;
+    box-sizing: border-box;
+    color: white !important;
+    padding: 5vw;
+    /* border: 5px solid black; */
+}
+.login-box{
+    /* text-align: center; */
+    width: 480px;
+    margin: 0px auto; 
+    background: rgba(0, 0, 0, .7);
+}
+
+.login-heading{
+    display: block;
+    border-bottom: 2px solid white;
+}
+footer{
+    display: block;
+    border-top: 2px solid white;
+    font-size: 18px;
+    font-weight: 600;
+}
+@media screen and (min-width:0) and (max-width:567px){
+
+    .login-box{
+        width: 100%;
+        height: 100%;
+    }
+    .logoin_Background{
+        padding: 0;
+    }
+}

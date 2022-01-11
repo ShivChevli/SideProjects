@@ -1,0 +1,391 @@
+*{box-sizing: border-box;}
+.cont-bar{
+    text-align: center;
+    height: 50px;
+    background: #212B37;
+    /* padding: 8px 25px; */
+}
+.cont-bar .fa{
+    font-size: 20px;
+}
+.cont-bar span{
+    color: white;
+    font-size: 20px !important;
+    margin: 0 5px;
+}
+.cont-bar .socil{
+    font-size: 25px;
+}
+header{
+    height: 100px;
+    background: #726EFF;
+    border-bottom: 2px solid black ;
+}
+.contect-detail{
+    width: 80%;
+    height: 100%;
+    /* background-color: aqua; */
+    float: right;
+}
+.contect-detail .fa{
+    display: inline-block;
+    font-size: 35px !important;
+    padding: 32px 0px 32px;
+    vertical-align: middle;
+}
+.contect-detail-text-box{
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight: 600;
+}
+.post-cont{
+    width: 300px;
+    float: right;
+}
+/* ------------------------------------------------
+            Slider And Nevigation section
+------------------------------------------------ */
+.slider {
+    width: 100%;
+    height: 78vh;
+    background-image: url('../img/p1.jpeg');
+    background-size: cover;
+    padding: 60vh 15% 0;
+    animation: sl 15s infinite;
+}
+
+@keyframes sl {
+    0% { background-image: url('../img/p1.jpeg'); }
+    25% { background-image: url('../img/p1.jpeg'); }
+    50% { background-image: url('../img/p2.jpeg'); }
+    75% { background-image: url('../img/p2.jpeg'); }
+    100%{ background-image: url('../img/p1.jpeg');}
+}
+.navbar-toggler{
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    z-index: 10000;
+    color: black;
+    cursor: pointer;
+}
+.fa-bars{
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 30px !important;
+}
+nav{
+    background: rgba(0, 0, 0, .8);
+    border: 2px solid white;
+}
+nav .navbar-nav{
+    margin: 10px auto;
+    font-size: 1em;
+}
+nav .navbar-nav .nav-item{
+    padding: 0px 2vw;
+}
+.navbar-dark .navbar-nav .active>.nav-link{
+    color: yellow !important;
+}
+.navbar-dark .navbar-nav .nav-link{
+    color: white !important;
+}
+.navbar-dark .navbar-nav .nav-link:hover{
+    color: yellow !important;
+}
+.dropdown-menu{
+    background: rgba(0, 0, 0, .8);
+    color: white !important;
+    margin-top: 17px;
+    border-radius: 0 !important;
+}
+a.text-light:focus, a.text-light:hover{
+    background: transparent;
+    color: yellow !important;
+}
+.showBorder{
+    border: 2px solid white !important;
+}
+@media screen and (min-width:0) and (max-width:767px){
+
+    .slider{
+        padding: 0;
+    }
+    .navbar{
+        padding: 0;
+        border: none;
+    }
+    nav .navbar-nav{
+        margin: 0 auto;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+}
+/* ---------------------------------------------------
+                Best Offers section
+--------------------------------------------------- */
+.offer {
+    /* width: auto;
+    height: auto; */
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+    padding: 25px 0;
+    background-color: wheat;
+}
+.offer .cole{
+    width: 18% !important;
+    display: inline-block;
+}
+@media screen and (min-width:0) and (max-width:992px){
+    .offer .cole{
+        width: 21% !important;
+    }
+    /* .of1{
+        width: 150px !important;
+        height: 150px !important;
+    } */
+}
+@media screen and (min-width:0) and (max-width:767px){
+    .offer .cole{
+        width: 32% !important;
+    }
+    .of1 {
+        width: 150px !important;
+        height: 150px !important;
+    }
+}
+@media screen and (min-width:0) and (max-width:567px){
+    .offer .cole{
+        width: 49% !important;
+    }
+}
+.of1 {
+    margin: 50px auto 20px;
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: 4px solid black;
+    border-radius: 5%;
+    transition-duration:0.5s ;
+    vertical-align: top;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(2, 2, 2, .5);
+    cursor: pointer;
+}
+.of1 img {
+    height: 100%;
+}
+.w1 {
+    width: 100%;
+    height: auto;
+}
+.of1:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px black;
+}
+.percentage {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    color: white;
+    border: 1px solid yellow;
+    padding: 10px 15px;
+    background-color: rgba(2, 2, 2, .5);
+    font-size: 50px;
+    text-align-last: right ;
+    line-height: 30px;
+}
+/* --------------------------------------------------
+                About Section
+-------------------------------------------------- */
+.hedding_section {
+    font-size: 35px;
+    text-decoration: underline;
+    color:black;
+}
+
+.sub_hedding {
+    margin: 10px;
+    /* font-size: 33px !important; */
+}
+
+.content {
+    width: 100%;
+    height: auto;
+    /* background-color: rgba(32, 88, 173, 0.829); */
+    background-color: #AAAEEB;
+    padding: 25px;
+}
+.box1 {
+    /* width: 400px; */
+    height: 400px;
+    padding: 25px;
+    text-align: center;
+    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 5px solid black;
+    display: inline-block;
+    background-color: rgba(1, 1,1, .7);
+    color: white;
+    transition: 0.5s;
+    border-radius: 5%;
+    overflow: hidden;
+}
+.box1 h1 {
+    margin-bottom: 50px;
+    font-size: 2vw;
+    padding: 5px;
+    border: 2px solid yellow;
+    background-color: rgba(2, 2, 2, .5);
+}
+.box1 p {
+    text-align: justify;
+    font-size: 1.2vw;
+}
+.box1:hover {
+    transform: scale(1.05);
+}
+.main-about{
+    max-width: 550px !important;
+}
+@media screen and (min-width:0) and (max-width:992px){
+    .box1 p{
+        font-size: 1.5vw;
+    }
+    .box1 h1{
+        font-size: 3vw;
+    }
+    .box1{
+        height: auto;
+    }
+}
+@media screen and (min-width:0) and (max-width:567px){
+    .box1 p{
+        font-size: 3vw;
+    }
+    .box1 h1{
+        font-size: 5vw;
+    }
+}
+/* --------------------------------------------------
+            Map Section
+-------------------------------------------------- */
+.map_section {
+    width: 100%; 
+    /* height: auto; */
+    text-align: center;
+    padding: 25px;
+    text-decoration: underline;
+    font-weight: 20px;
+    color: #212B37;
+    background-color: #F5DEB3;
+    border: 5px solid black;
+
+}
+.map {
+    box-shadow: 0 0 15px black;
+    margin: 50px;
+    height: 25em !important;
+}
+@media screen and (min-width:0) and (max-width:567px){
+    .map{
+        height: 20em !important;
+    }
+}
+/* ----------------------------------------------
+            Footer Scetion
+---------------------------------------------- */
+footer{
+    background-color: #212B37;
+}
+.socil {
+    font-size: 35px;
+    margin:10px 5px;
+    color: white;
+}
+.footer_menu h2{
+    font-size: 22px;
+    color: white;
+    text-decoration: underline;
+    margin: 15px 0;
+}
+.footer_menu h2 ~ h3 {
+    margin: 15px 10px;
+    font-size: 18px;
+    position: relative;
+}
+.footer_menu a {
+    color: silver;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.5s;   
+}
+.footer_menu a:hover {
+    color: white;
+    transform: scale(1.15);
+    text-decoration: none;
+}
+.footer_menu h3 {
+    color: silver;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    transition: 0.5s;   
+}
+.footer_menu h3:hover {
+    color: white;
+    transform: scale(1.15);
+    text-decoration: none;
+}
+.modal-body{
+    height: 500px;
+    overflow-y: auto;
+}
+.agrement{
+    display: block !important;
+}
+.copy-r{
+    text-align: center;
+    color: red;
+}
+/* ---------------------------------------
+                modal Section
+--------------------------------------- */
+#FandQ .modal-body ul li{
+    list-style:none;
+}
+.modal-body ul li span{
+    font-size: 23px;
+    font-weight: 500;
+    position: relative;
+    color: black;
+}
+.modal-body ul li span::before{
+    content: "Q.";
+    font-size: 25px;  
+    position: absolute;
+    left: -35px;
+    bottom: -3px;  
+    color: black;
+}
+.modal-body ul li p{
+    font-size: 18px;
+    /* font-weight: 400; */
+}
+button span{
+    color: black;
+}
+.modal-body label{
+    color: black;
+    font-weight: 400;
+    font-size: 20px;
+}
+.fqu{
+    border-top: 1px solid black;
+}

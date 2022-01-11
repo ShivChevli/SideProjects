@@ -1,0 +1,276 @@
+header{
+    background-color: #726EFF;
+    height: 100px;
+    position: relative  ;
+    border-bottom: 2px solid #212B37;
+}
+nav{
+    height: 100px !important;
+}
+.menu{
+    font-size: 18px;
+    font-weight:600;    
+}
+.navbar-toggler-icon{
+    cursor: pointer;
+}
+main{
+    background-color: rgba(33, 43, 55, .9);
+    background-image: url('../img/p2.jpeg');
+    background-blend-mode: lighten;
+    background-repeat: no-repeat;
+}
+.profile-img{
+    width: 80%;
+}
+.profile-img-get{
+    margin-top: 50%;
+    transform: translateY(-50%);
+}
+.img-fram{
+    border: 10px solid white;
+    outline: 3px solid black;
+}
+@media screen and (min-width:0px) and (max-width:767px){
+
+    .profile-img{
+        margin-top: 10px;
+        margin-bottom: 0px !important;
+    }
+    .menu{
+        margin-top: 50px;
+        text-align: center;
+        z-index: 10000;
+        background-color: rgba(0,0,0,.7);
+    }
+    .profile-img-get{   
+        transform: none;
+    }
+    .navbar-dark .navbar-nav .nav-link{
+        color: white;
+    }
+    .navbar-dark .navbar-nav .active>.nav-link{
+        color: yellow;
+    }
+    .logo-con{
+        max-width: 100% !important;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    header{
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+label{
+    color: white;
+    font-weight: 700;
+    font-size: 22px;
+}
+span{
+    color:white;
+    font-weight: 500;
+    font-size: 17px;
+}
+.hide{
+    display: none;
+}
+footer{
+    background-color: #212B37;
+    border-top: 2px solid black;
+}
+.socil {
+    font-size: 35px;
+    margin:10px 5px;
+    color: white;
+}
+.footer_menu h2{
+    font-size: 22px;
+    color: white;
+    text-decoration: underline;
+    margin: 15px 0;
+}
+.footer_menu h2 ~ h3 {
+    margin: 15px 10px;
+    font-size: 18px;
+    position: relative;
+}
+.footer_menu a {
+    color: silver;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.5s;   
+}
+.footer_menu a:hover {
+    color: white;
+    transform: scale(1.15);
+    text-decoration: none;
+}
+.footer_menu h3 {
+    color: silver;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    transition: 0.5s;   
+}
+.footer_menu h3:hover {
+    color: white;
+    transform: scale(1.15);
+    text-decoration: none;
+}
+.modal-body{
+    height: 500px;
+    overflow-y: auto;
+}
+.agrement{
+    display: block !important;
+}
+.copy-r{
+    text-align: center;
+    color: red;
+}
+#FandQ .modal-body ul li{
+    list-style:none;
+}
+.modal-body ul li span{
+    font-size: 23px;
+    font-weight: 500;
+    position: relative;
+    color: black;
+}
+.modal-body ul li span::before{
+    content: "Q.";
+    font-size: 25px;  
+    position: absolute;
+    left: -35px;
+    bottom: -3px;  
+    color: black;
+}
+.modal-body ul li p{
+    font-size: 18px;
+    /* font-weight: 400; */
+}
+button span{
+    color: black;
+}
+.modal-body label{
+    color: black;
+    font-weight: 400;
+    font-size: 20px;
+}
+.fqu{
+    border-top: 1px solid black;
+}
+/* ---------------------------------------------
+            My order file 
+--------------------------------------------- */
+.order-pic{
+    width: 80%;
+    border-radius: 15px;
+    border: 2px solid black;
+    /* height: 450px; */
+    max-height: 550px;
+    margin: 50px auto;
+    overflow: hidden;
+}
+#order-name{
+    color: white;
+    border-bottom: 3px solid white;
+}
+.p-lable{
+    text-align: right;
+    margin-right: -10px;
+}
+.bar{
+    float: right;
+    border-bottom: 5px solid red;
+    width: 100%;
+    display: block;
+    position: relative;
+}
+.bar::before{
+    content: "";
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    clip-path: circle(15px at 50% 50%);
+    position: absolute;
+    right: -10px;
+    bottom: -15px;
+}
+.bar::after{
+    content: "";
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    clip-path: circle(8px at 50% 50%);
+    position: absolute;
+    right: -10px;
+    bottom: -15px;
+}
+.done{
+    border-color: rgb(48, 245, 48);
+}
+.done::before{
+    background-color: darkgreen;
+}
+.done::after{
+    background-color: white;
+    clip-path: circle(8px at 50% 50%);
+}
+
+.first-stop{
+    position: relative;
+    width: 100%;
+    display: block;
+}
+.first-stop::before{
+    content: "";
+    width: 30px;
+    height: 30px;
+    background-color: darkgreen;
+    clip-path: circle(15px at 50% 50%);
+    position: absolute;
+    left: -20px;
+    bottom: -15px;
+}
+.first-stop::after{
+    content: "";
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    clip-path: circle(8px at 50% 50%);
+    position: absolute;
+    left: -20px;
+    bottom: -15px;
+}
+span{
+    font-weight: 700;
+}
+.order-pic-icon-con{
+    cursor: pointer;
+    width: 70%;
+    border: 2px solid black;
+    border-radius: 10%;
+    /* height: 110px; */
+    height: 7vw;
+    overflow: hidden;
+    margin: 10px auto 0;
+}
+@media screen and (min-width:0px) and (max-width:767px){
+
+    span{
+        color: black;
+        font-weight: 500;
+    }
+    label{
+        color: black;
+    }
+    #order-name{
+        color: black;
+        border-bottom: 3px solid black;
+    }
+    .order-pic-icon-con{
+        height: 10vw;
+    }
+}

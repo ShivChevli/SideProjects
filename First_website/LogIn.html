@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Sign In Page</title>
+
+    <!-- =========================== Asset Css ========================== -->
+    <link rel="stylesheet" href="asset/vendor/bootstrap/css/bootstrap.min.css">
+
+    <!-- =============================== Custom CSS ======================== -->
+    <link rel="stylesheet" href="asset/css/singin.css">
+
+</head>
+
+<body class="logoin_Background">
+    <main class="p-5 login-box">
+        <h1 class="pb-4 mb-3 text-center login-heading" id="welH">Welcome Back</h1>
+        <h1 class="pb-4 mb-3 text-center login-heading d-none" id="forH">Reset Password</h1>
+        <form action="My_profile.html">
+            <div class="form-group">
+                <label for="uname">Enter User Name:-</label>
+                <input type="text" class="form-control" id="uname" name="user_name">
+            </div>
+            <div class="form-group">
+                <label for="pass">Password:-</label>
+                <input type="password" class="form-control" id="pass" name="Id_password">
+            </div>
+            <div class="form-group d-none" id="forD">
+                <label for="pass">Re-Enter Password:-</label>
+                <input type="password" class="form-control" id="pass" name="Id_password">
+            </div>
+            <center>
+                <input type="submit" class="btn btn-primary px-3" value="Log In">
+            </center>
+        </form>
+        <div class="text-center pt-3">
+            <span class="text-primary" style="cursor: pointer;" id="Fpass"><u>Forgot Password ?</u></span>
+        </div>
+        <footer class="pt-3 mt-3 text-center">
+            New User? <a href="sigin.html"> Click Here</a>
+        </footer>
+    </main>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelector('#Fpass').onclick = function () {
+            document.querySelector('#forH').classList.remove("d-none");
+            document.querySelector('#forD').classList.remove("d-none");
+            document.querySelector('#welH').classList.add("d-none");
+            document.querySelector('#Fpass').classList.add("d-none");
+            document.querySelector('input[type="submit"]').value = "Reset";
+        }
+        document.querySelector('form').onsubmit = function () {
+            if (document.querySelector('input[type="submit"]').value == "Reset") {
+                alert("Your Password is Sucessfully Reset");
+            }
+        }
+    })
+</script>
+
+</html>

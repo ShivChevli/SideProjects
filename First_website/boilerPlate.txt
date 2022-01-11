@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    
+    <!-- ===================== Asset CSS ======================= -->
+    <link rel="stylesheet" href="E:\Photoshop project\fontawesome-free-5.12.1-web\css\all.css">
+    <link rel="stylesheet" href="asset/vendor/bootstrap/css/bootstrap.min.css"> 
+
+    <!-- ===================== Coustom CSS ======================= -->
+    <link rel="stylesheet" href="asset/css/logo.css">
+    <link rel="stylesheet" href="asset/css/profile.css">       
+
+</head>
+<body>
+
+    <header class="container-fluid">
+        <div class="container logo-con">
+            <nav class="navbar navbar-expand-md navbar-dark">
+                <a class="navbar-brand" href="index.html">
+                    <div class="logo" >
+                        <img src="E:\Ps - saves\demo-1.jpg" class="logo_img">
+                        <p class="logo_text">
+                                K.K.<br>
+                                Creation
+                        </p>
+                    </div>  
+                </a>
+                
+                <div data-toggle="collapse" data-target="#collapsibleNavId" class="navbar-toggler">
+                    <span class="navbar-toggler-icon"></span>
+                </div>
+                    
+                <div class="collapse navbar-collapse menu" id="collapsibleNavId">
+                    <ul class="navbar-nav  mt-lg-4 ml-auto ">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="My_profile.html">My Profile <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link " href="clothe.html">Cetalog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">My Cart</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Purches History</a></li>
+                        <li class="nav-item"><a class="nav-link" href="LogIn.html">Log Out</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    
+    <footer class="container-fluid py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <h1 class="logo_text" style="width: 35px; font-size: 30px;">K.K. Creation</h1>
+                    <a href=""><i class="fab fa-instagram socil" aria-hidden="true"></i></a>
+                    <a href=""><i class="fab fa-facebook-square socil" aria-hidden="true"></i></a>
+                    <a href=""><i class="fab fa-linkedin socil" aria-hidden="true"></i></a>
+                    <a href=""><i class="fab fa-twitter-square socil" aria-hidden="true"></i></a>
+                    <div class="form-group">
+                        <input type="email" class="form-control mt-3" placeholder="Enter Your E-mainl Address">
+                        <input type="submit" class="btn btn-danger mt-3" value="Subscribe">
+                    </div>
+                </div>
+                <div class="footer_menu col-lg-3 col-sm-6">
+                    <h2>Main Manu</h2>
+                    <h3><a href="">Men's Collection</a></h3>
+                    <h3><a href="">Women's Collection</a></h3>
+                    <h3><a href="">Childern's Collection</a></h3>
+                </div>
+                <div class="footer_menu col-lg-3 col-sm-6">
+                    <h2>Info</h2>
+                    <h3><a href="">About Us</a></h3>
+                    <h3 data-toggle="modal" data-target="#privecyP">Privecy policy</h3>
+                    <h3 data-toggle="modal" data-target="#ReturnP">Return policy</h3>
+                    <h3 data-toggle="modal" data-target="#tandc">Term & Condition</h3>
+                </div>
+                <div class="footer_menu col-lg-3 col-sm-6">
+                    <h2>Coustomor Service</h2>
+                    <h3 data-toggle="modal" data-target="#FandQ">FAQs</h3>
+                    <h3>Contect Us</h3>
+                    <h3 data-toggle="modal" data-target="#feed-back">Feed Back</h3>
+                </div>
+            </div>
+        </div>
+        <p class="copy-r">Created By Shiv Chevli &copy;</p>    
+    </footer>
+
+    <!-- Privecy Policy Modal -->
+    <div class="modal fade" id="privecyP" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                    <div class="modal-header">
+                            <h5 class="modal-title">Privecy Policy</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam ipsum incidunt omnis, facilis est quod dolorem soluta ab at veniam autem et quasi molestias provident laudantium similique suscipit repellendus tenetur?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam ipsum incidunt omnis, facilis est quod dolorem soluta ab at veniam autem et quasi molestias provident laudantium similique suscipit repellendus tenetur?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam ipsum incidunt omnis, facilis est quod dolorem soluta ab at veniam autem et quasi molestias provident laudantium similique suscipit repellendus tenetur?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam ipsum incidunt omnis, facilis est quod dolorem soluta ab at veniam autem et quasi molestias provident laudantium similique suscipit repellendus tenetur?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam ipsum incidunt omnis, facilis est quod dolorem soluta ab at veniam autem et quasi molestias provident laudantium similique suscipit repellendus tenetur?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam ipsum incidunt omnis, facilis est quod dolorem soluta ab at veniam autem et quasi molestias provident laudantium similique suscipit repellendus tenetur?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam ipsum incidunt omnis, facilis est quod dolorem soluta ab at veniam autem et quasi molestias provident laudantium similique suscipit repellendus tenetur?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam ipsum incidunt omnis, facilis est quod dolorem soluta ab at veniam autem et quasi molestias provident laudantium similique suscipit repellendus tenetur?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam ipsum incidunt omnis, facilis est quod dolorem soluta ab at veniam autem et quasi molestias provident laudantium similique suscipit repellendus tenetur?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam ipsum incidunt omnis, facilis est quod dolorem soluta ab at veniam autem et quasi molestias provident laudantium similique suscipit repellendus tenetur?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam ipsum incidunt omnis, facilis est quod dolorem soluta ab at veniam autem et quasi molestias provident laudantium similique suscipit repellendus tenetur?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam ipsum incidunt omnis, facilis est quod dolorem soluta ab at veniam autem et quasi molestias provident laudantium similique suscipit repellendus tenetur?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam ipsum incidunt omnis, facilis est quod dolorem soluta ab at veniam autem et quasi molestias provident laudantium similique suscipit repellendus tenetur?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam ipsum incidunt omnis, facilis est quod dolorem soluta ab at veniam autem et quasi molestias provident laudantium similique suscipit repellendus tenetur?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam ipsum incidunt omnis, facilis est quod dolorem soluta ab at veniam autem et quasi molestias provident laudantium similique suscipit repellendus tenetur?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam ipsum incidunt omnis, facilis est quod dolorem soluta ab at veniam autem et quasi molestias provident laudantium similique suscipit repellendus tenetur?
+                        
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <!-- Return Policy Modal -->
+    <div class="modal fade" id="ReturnP" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                    <div class="modal-header">
+                            <h5 class="modal-title">Return Policy</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <ul>
+                            <li>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro numquam, velit eveniet corporis esse quaerat quod cupiditate distinctio nobis eius, animi delectus provident doloribus officiis. Cum, laborum! Perspiciatis, quaerat saepe?
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro numquam, velit eveniet corporis esse quaerat quod cupiditate distinctio nobis eius, animi delectus provident doloribus officiis. Cum, laborum! Perspiciatis, quaerat saepe?
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro numquam, velit eveniet corporis esse quaerat quod cupiditate distinctio nobis eius, animi delectus provident doloribus officiis. Cum, laborum! Perspiciatis, quaerat saepe?
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro numquam, velit eveniet corporis esse quaerat quod cupiditate distinctio nobis eius, animi delectus provident doloribus officiis. Cum, laborum! Perspiciatis, quaerat saepe?
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro numquam, velit eveniet corporis esse quaerat quod cupiditate distinctio nobis eius, animi delectus provident doloribus officiis. Cum, laborum! Perspiciatis, quaerat saepe?
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro numquam, velit eveniet corporis esse quaerat quod cupiditate distinctio nobis eius, animi delectus provident doloribus officiis. Cum, laborum! Perspiciatis, quaerat saepe?
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro numquam, velit eveniet corporis esse quaerat quod cupiditate distinctio nobis eius, animi delectus provident doloribus officiis. Cum, laborum! Perspiciatis, quaerat saepe?
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro numquam, velit eveniet corporis esse quaerat quod cupiditate distinctio nobis eius, animi delectus provident doloribus officiis. Cum, laborum! Perspiciatis, quaerat saepe?
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Term & condition Modal -->
+    <div class="modal fade" id="tandc" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                    <div class="modal-header">
+                            <h5 class="modal-title">Terms And Condition</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <ul>
+                            <li>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro numquam, velit eveniet corporis esse quaerat quod cupiditate distinctio nobis eius, animi delectus provident doloribus officiis. Cum, laborum! Perspiciatis, quaerat saepe?
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro numquam, velit eveniet corporis esse quaerat quod cupiditate distinctio nobis eius, animi delectus provident doloribus officiis. Cum, laborum! Perspiciatis, quaerat saepe?
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro numquam, velit eveniet corporis esse quaerat quod cupiditate distinctio nobis eius, animi delectus provident doloribus officiis. Cum, laborum! Perspiciatis, quaerat saepe?
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro numquam, velit eveniet corporis esse quaerat quod cupiditate distinctio nobis eius, animi delectus provident doloribus officiis. Cum, laborum! Perspiciatis, quaerat saepe?
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro numquam, velit eveniet corporis esse quaerat quod cupiditate distinctio nobis eius, animi delectus provident doloribus officiis. Cum, laborum! Perspiciatis, quaerat saepe?
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro numquam, velit eveniet corporis esse quaerat quod cupiditate distinctio nobis eius, animi delectus provident doloribus officiis. Cum, laborum! Perspiciatis, quaerat saepe?
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro numquam, velit eveniet corporis esse quaerat quod cupiditate distinctio nobis eius, animi delectus provident doloribus officiis. Cum, laborum! Perspiciatis, quaerat saepe?
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro numquam, velit eveniet corporis esse quaerat quod cupiditate distinctio nobis eius, animi delectus provident doloribus officiis. Cum, laborum! Perspiciatis, quaerat saepe?
+                            </li>
+                        </ul>
+                        <div class="form-group">
+                            <input type="checkbox" name="agreement" id="agree">
+                            <label for="agree">I have Read all Trems & Condition and I agree for it</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- F&q Modal -->
+    <div class="modal fade" id="FandQ" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                    <div class="modal-header">
+                            <h5 class="modal-title">F&Q</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <ul>
+                            <li>
+                                <span>In how manay days I can return product after Purches?</span>
+                                <p>You can retuern Product After 15 day's of purches. </p>
+                            </li>
+                            <li>
+                                <span>In how many day's I got product after put order?</span>
+                                <p>Almost you will get product within 15 days after putting order but In some case it might not be true </p>
+                            </li>
+                            <li>
+                                <span>In how manay days I can return product after Purches?</span>
+                                <p>You can retuern Product After 15 day's of purches. </p>
+                            </li>
+                            <li>
+                                <span>In how many day's I got product after put order?</span>
+                                <p>Almost you will get product within 15 days after putting order but In some case it might not be true </p>
+                            </li>
+                            <li>
+                                <span>In how manay days I can return product after Purches?</span>
+                                <p>You can retuern Product After 15 day's of purches. </p>
+                            </li>
+                            <li>
+                                <span>In how many day's I got product after put order?</span>
+                                <p>Almost you will get product within 15 days after putting order but In some case it might not be true </p>
+                            </li>
+                        </ul>
+                        <div class="form-group pt-2 fqu">
+                            <form action="post">
+                                <input type="text" name="FandQ" id="quation" class="form-control my-3" placeholder="Put your Quation Here">
+                                <input type="submit" value="Submit" class="btn btn-primary">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- Feed back Modal -->
+    <div class="modal fade" id="feed-back" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <form action="post">
+                    <div class="modal-header">
+                            <h5 class="modal-title">FeedBack</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" class="fa-1x">&times;</span>
+                            </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="form-group">
+                                <label for="#name">Name :-</label>
+                                <input type="text" class="form-control" id="name" name="Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="#email">Email Id :-</label>
+                                <input type="emial" class="form-control" id="name" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="#feed" class="custom-control">Review :- </label>                          
+                                <textarea class="form-control" name="feedback" id="feed" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" value="Save" class="btn btn-primary px-3">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script src="asset/js/jquery-3.4.1.js"></script>
+    <script src="asset/vendor/bootstrap/js/bootstrap.js"></script>
+    <script src="asset/js/profile.js"></script>
+    <!-- <script>
+        $('#exampleModal').on('show.bs.modal', event => {
+            var button = $(event.relatedTarget);
+            var modal = $(this);
+            // Use above variables to manipulate the DOM
+            
+        });
+    </script> -->
+</body>
+</html>

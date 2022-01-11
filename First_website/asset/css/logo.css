@@ -1,0 +1,45 @@
+.logo { 
+    position: absolute;
+    top: 8px;
+    left: 50px;
+    padding: 2.5px;
+    /* display: inline-block; */
+    width: 120px;
+    /* width: 120px; */
+    height: auto;
+    /* border: 2px solid black;
+    background-color: rgba(255, 255, 255, .8); */
+}
+.logo_img { 
+    float: left;
+    width: 50px;
+    height: auto;
+    /* margin: 5px; */
+    border: 5px solid yellow;
+    /* display: inline-block; */
+    /* border-width: 10px;
+    border-style:  solid;
+    border-color:  linear-gradient(45deg,red,yellow,green); */
+    /* radial-gradient(black,white,black); */
+}
+.logo_text {
+    font-size: 20px;
+    font-family: fantasy;
+    margin-top: 15px;
+    margin-left: 5px;
+    color: red;
+    text-decoration: underline;
+}
+.logo-con{
+    height: 100px;
+}
+.logo{
+    height: 80px !important;
+    cursor: pointer !important;
+}
+.logo_img{
+    margin: 5px;
+}
+.logo_text{
+    margin-top: 5px;
+}
