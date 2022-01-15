@@ -1,29 +1,7 @@
+var temp = "";
+var ingredientCount = 0;
+var addedIngredient = {};
 document.addEventListener("DOMContentLoaded", function () {
-    var r = document.querySelector(":root");
-    console.log(r.style.setProperty("--text-color", "#fff"));
-    console.log(r.style.setProperty("--bg-color-main", "#610CFF"));
-    console.log(r.style.setProperty("--bg-color-alter", "#fff"));
-    console.log(r.style.setProperty("--text-alter", "#000"));
-    console.log(r.style.setProperty("--item", "#dddddd"));
-
-    document.getElementById('theme').onclick = function () {
-
-        if (r.style.getPropertyValue("--text-color") == "#fff") {
-            r.style.setProperty("--text-color", "#a85EeF");
-            r.style.setProperty("--bg-color-main", "#292929");
-            r.style.setProperty("--bg-color-alter", "#121212");
-            r.style.setProperty("--text-alter", "#d0d0d0");
-            r.style.setProperty("--item", "#444444");
-        }
-        else {
-            r.style.setProperty("--text-color", "#fff");
-            r.style.setProperty("--bg-color-main", "#610CFF");
-            r.style.setProperty("--bg-color-alter", "#ffff");
-            r.style.setProperty("--text-alter", "#000");
-            r.style.setProperty("--item", "#dddddd");
-        }
-        // console.log(r.style.setProperty("--text-color", "#000"));
-    }
 
     document.querySelectorAll(".pdf").forEach(pdf => {
         pdf.onclick = function () {
@@ -33,30 +11,476 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    const date = new Date();
-    document.getElementById("date").innerText = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
 
-    document.querySelectorAll(".text")
-        .forEach(btn => {
-            btn.onclick = function () {
-                console.log(btn);
-                document.getElementById("single-section").style.display = "none";
-                document.getElementById("multi-section").style.display = "block";
+    document.querySelectorAll(".text").forEach(btn => {
+        btn.onclick = function () {
+
+            // console.log(btn.dataset);
+            let getId = btn.dataset.itemid;
+            let qI = btn.dataset.queryitem;
+            console.log("Id :- " + getId);
+            console.log("queryName :- " + qI);
+
+            if (getId != undefined) {
+                // fetch(`/orderInventory/detail?queryItem=${qI}&queryId=${getId}`)
+                //     .then(responce => responce.json())
+                //     .then(data => {
+                //         console.log("Fetch Data :- "+ data);
+                //         console.log("Type :"+ typeof(data));
+                //         console.log("Type :"+ JSON.stringify(data));
+                //         if ( typeof(data) == 'object'){
+                //             temp = data;
+                //         }
+                //         else
+                //         {
+                //         temp = JSON.parse(data);
+                //         }
+                //         console.log("Temp :- "+temp);
+                //         if(qI === "order_one"){
+                //             temp.forEach(data => {
+                //                 console.log(data.fields);
+                //             })
+                //         }
+                //         else{
+                //             temp.forEach(data => {
+                //                 console.log(data.fields);
+                //                 if(qI === "item_one"){
+                //                     console.log("Item Update Call");
+                //                     let tempInput = document.createElement("input");
+                //                     tempInput.name = "ItemId";
+                //                     tempInput.defaultValue = getId;
+                //                     tempInput.style.display = "none";
+                //                     document.getElementById("newIngredientHidden").appendChild(tempInput);
+                //                     setDataFromUpdateItem(data.fields,getId);
+                //                 }
+                //                 else{
+                //                     if(document.getElementById("updateElementID") !== undefined){
+                //                         document.getElementById("updateElementID").defaultValue = getId;
+                //                         document.getElementById("deleteElementId").defaultValue = parseInt(getId);
+                //                     }
+                //                     setData(data.fields,qI);
+                //                 }
+                //             })
+                //         }
+
+                //     })
+                // .catch(error => {
+                //     console.log("Custom Error :- "+error)
+                // })
+            }
+
+            let tmp = document.getElementById("toolbox");
+            if (tmp != undefined) {
+                tmp.style.display = "none";
+            }
+        }
+    })
+    let addIngredient = document.querySelectorAll(".addIngredients");
+
+    if (addIngredient.length !== 0) {
+        ingredientCount = 0;
+        addIngredient.forEach(p => {
+            p.onclick = function () {
+
+                // document.getElementById("editFromHeading").innerText = p.innerText;
+                // document.getElementById("id").innerText = p.dataset.ingredientid;
+                console.log(p.dataset.ingredientid);
+                // document.getElementById("add-ingredient-form").style.display = "inline-block";
+                // document.getElementById("ingredient-list-box").style.display = "none";
+                // document.getElementById("defaultValue").focus();
+                addItemIngredient(p);
+                ItemIngredientUpdate();
+
             }
         })
 
-    document.querySelector(".edit").onclick = function () {
-        document.querySelector("#detailBox").style.display = "none";
-        document.querySelector("#updateBox").style.display = "inline-block";
+        // ==============================================================================
+        //  =====================================   delete From Functionality
+        // ==============================================================================
+
+        // let addBtn = document.getElementById("addBtn");
+        // let closeEditBtn = document.getElementById("closeEditBtn");
+        // if(closeEditBtn !== null){
+        //     closeEditBtn.onclick = function (){
+        //         document.getElementById("defaultValue").value = "";
+        //         document.getElementById("ingredient-list-box").style.display = "inline-block";
+        //         document.getElementById("add-ingredient-form").style.display = "none";
+        //         return false;
+        //     }
+        // }
+        // if(addBtn !== null){
+        // addBtn.onclick = function (){
+        //     console.log("Button Submit");
+        //
+        //     document.getElementById("closeEditBtn").style.display = "inline-block";
+        //     // addItemIngredient(addBtn);
+        //     // ItemIngredientUpdate();
+        //
+        //     return false;
+        // }
+        // }
+
     }
 
-    document.querySelectorAll(".cancel-btn").forEach(btn => {
-        btn.onclick = function () {
-            document.getElementById("single-section").style.display = "block";
+    //Delete element in Store and Ingredient Form
+    try {
+        document.getElementById("deleteFrom").onsubmit = function () {
+            console.log("data :-");
+            if (confirm("Do you Sure want to Delete this Item ?")) {
+                return true;
+            }
+            else {
+                return false;
+            }
+            return false;
+        }
+    }
+    catch (e) {
+        console.log('This Is Not From Extended Template');
+    }
+
+    try {
+        document.querySelectorAll("#deleteFromItems").forEach(p => {
+            p.onsubmit = function () {
+                if (confirm("Do you really want to Delete This ?")) {
+                    return true
+                }
+                return false
+            }
+        })
+    }
+    catch (e) {
+        console.log("No Item Found")
+    }
+})
+
+document.querySelectorAll(".edit").forEach(btn => {
+    btn.onclick = function () {
+        document.getElementById('updateBox').style.display = "inline-block";
+        document.getElementById('detailBox').style.display = "none";
+    }
+})
+
+
+document.querySelectorAll(".newItem").forEach(btn => {
+    btn.onclick = function () {
+        addedIngredient = {};
+        IngredientListUpdate();
+        let tmp = document.getElementById("toolbox");
+        if (tmp != undefined) {
+            tmp.style.display = "none";
+        }
+        document.getElementById("newItemBox").style.display = "block";
+        document.getElementById("single-section").style.display = "none";
+
+        if (document.getElementById("multi-section") != undefined) {
             document.getElementById("multi-section").style.display = "none";
         }
-    })
+    }
 })
+
+document.querySelectorAll(".cancel-btn").forEach(btn => {
+    btn.onclick = function () {
+        let tmp = document.getElementById("toolbox");
+        if (tmp != undefined) {
+            tmp.style.display = "grid";
+        }
+        console.log("log Entry");
+        document.getElementById("single-section").style.display = "block";
+        document.getElementById("newItemBox").style.display = "none";
+
+
+        //clear edit Item data onclick on cancel
+        try {
+            addedIngredient = {};
+            document.getElementById("add-New-ingredient-form").style.display = "none";
+            document.getElementById("ingredient-list-box").style.display = "inline-block";
+            // document.getElementById("newItem").action = "/orderInventory/ItemsNew/";
+            document.getElementById("newIngredientHidden").innerHTML = "";
+            document.getElementById("newItemSubmitBtn").value = "Create";
+            document.getElementById("updateItemId").defaultValue = "";
+            document.getElementById("name").value = "";
+            document.getElementById("itemIngredients").innerHTML = "";
+            document.getElementById("add-ingredient-form").style.display = "none";
+            document.getElementById("ingredient-list-box").style.display = "inline-block";
+        }
+        catch (e) {
+            console.log("Close btn for Edit Items");
+        }
+
+        try {
+            document.getElementById('detailBox').style.display = "inline-block";
+            document.getElementById('updateBox').style.display = "none";
+            document.getElementById("multi-section").style.display = "none";
+        }
+        catch (e) {
+            console.log("Error :- " + e);
+        }
+
+        return false
+    }
+})
+
+
+//function for Item Tab
+function setDataFromUpdateItem(data, queryID) {
+
+    document.getElementById("itemIngredients").innerHTML = "";
+    ingredientCount = 0;
+
+    console.log("setDataFromUpdateItem Call ");
+
+    document.getElementById("name").value = data.ItemName;
+    for (let i in data.ingredient) {
+
+        for (let j in data.ingredient[i]) {
+
+            document.getElementById("itemIngredients").innerHTML += `
+                    <div class="suggetion-list-item" data-ingredientId="${j}" id="delete">
+                        <p class="text_style editIngredients"  data-queryItem="item_one" >${data.ingredient[i][j]}</p>
+                        <button class="add button-remove" type="button" role="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M6 7H5v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7H6zm4 12H8v-9h2v9zm6 0h-2v-9h2v9zm.618-15L15 2H9L7.382 4H3v2h18V4z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                `;
+
+            addedIngredient[j] = data.ingredient[i][j];
+            const input = document.createElement("input");
+            input.type = "number";
+            input.name = `ingredientId${ingredientCount}`;
+            input.defaultValue = `${j}`;
+            input.style.display = "none";
+
+            document.getElementById("newIngredientHidden").appendChild(input);
+            ingredientCount++;
+
+        }
+    }
+
+    document.getElementById("single-section").style.display = "none";
+    document.getElementById("newItemBox").style.display = "block";
+
+    document.getElementById("updateItemId").defaultValue = queryID;
+
+    console.log("Submit Btn");
+    console.log(document.getElementById("newItemSubmitBtn").value = "Update");
+
+    ItemIngredientUpdate();
+
+
+    return false;
+}
+
+//Add new Ingredient From Item Page
+try {
+
+    document.querySelector("#closeEditBtn").onclick = function () {
+        document.getElementById("ingredient-list-box").style.display = "inline-block";
+        document.getElementById("add-New-ingredient-form").style.display = "none";
+
+        let tt = document.getElementById("newIngredientFrom");
+        tt.element[0].value = 0;
+        tt.element[1].value = "";
+    }
+
+    //Add new Ingredient From Item Page
+    document.querySelector("#addNewIngredientBtn").onclick = function () {
+        document.querySelector("#ingredient-list-box").style.display = "none";
+        document.querySelector("#add-New-ingredient-form").style.display = "inline-block";
+    }
+
+    document.querySelector("#newIngredientFrom").onsubmit = function () {
+        console.log("New Ingredient From Submitted  ");
+        categoryId = this.elements[1].value;
+        name = this.elements[0].value;
+        // fetch('/orderInventory/IngredientNew/',{
+        //     method : "POST",
+        //     headers: {
+        //         "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+        //     },
+        //     credentials: 'include',
+        //     body : `name=${name}&categoryId=${categoryId}&json=1`
+        // })
+        //     .then(response => response.json())
+        //     .then(data=>{
+        //         console.log("data");
+        //         console.log(data);
+
+        //         document.getElementById("itemIngredients").innerHTML += `
+        //             <div class="suggetion-list-item" data-ingredientId="${data.newIngredientId}" id="delete">
+        //                 <p class="text_style editIngredients"  data-queryItem="item_one" >${name}</p>
+        //                 <button class="add button-remove" type="button" role="button">
+        //                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        //                     <path d="M6 7H5v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7H6zm4 12H8v-9h2v9zm6 0h-2v-9h2v9zm.618-15L15 2H9L7.382 4H3v2h18V4z"></path>
+        //                     </svg>
+        //                 </button>
+        //             </div>
+        //         `;
+
+        //         const input = document.createElement("input");
+        //         input.type = "number";
+        //         input.name = `ingredientId${ingredientCount}`;
+        //         input.defaultValue = `${data.newIngredientId}`;
+        //         input.style.display = "none";
+
+        //         document.getElementById("newIngredientHidden").appendChild(input);
+        //         ingredientCount++;
+
+        //         ItemIngredientUpdate();
+
+        //     })
+
+        document.querySelector("#ingredient-list-box").style.display = "inline-block";
+        document.querySelector("#add-New-ingredient-form").style.display = "none";
+
+
+        this.elements[1].value = 0;
+        this.elements[0].value = "";
+        // document.querySelector("#newIngredientFrom");
+        return false;
+    }
+}
+catch (e) {
+    console.log("This function is for item page");
+}
+
+//Set data for Category and Ingredient
+function setData(data, queryitem) {
+    console.log("Query Item :" + queryitem);
+    let ul = document.querySelector(".detail-list");
+    ul.innerHTML = "";
+    console.log("Set Data Method called");
+    console.log(data);
+    for (let item in data) {
+        if (data[item] != null && item !== "createdAt") {
+            console.log("Items :- ", item);
+            try {
+                console.log("Input From Set");
+                document.getElementById(item).value = data[item];
+
+            }
+            catch (e) {
+                console.log("Catch Block : " + item + " field Does not Exists")
+            }
+
+            // forDetails Display
+            let li = document.createElement("li");
+            if (item === "category") {
+                console.log("Category set");
+                li.innerHTML = `<span>${item.toUpperCase()} : </span> ${findSore(data[item])}`;
+            }
+            // else if(typeof(data[item]) == 'object'){
+            //     let table = creatTable(data[item])
+            //     let span1 = document.createElement("span");
+            //     span1.innerHTML = item.toUpperCase();
+            //     let span2 = document.createElement("span");
+            //     span2.appendChild(table);
+            //     li.appendChild(span1);
+            //     li.appendChild(span2);
+            // }
+            else {
+                li.innerHTML = `<span>${item.toUpperCase()} : </span> ${data[item]}`;
+            }
+            ul.appendChild(li);
+        }
+    }
+    document.getElementById("multi-section").style.display = "block";
+    document.getElementById("single-section").style.display = "none";
+
+}
+
+function findSore(id) {
+    op = document.querySelector(`select`).options;
+    for (let i = 0; i < op.length; i++) {
+        if (op[i].value == id) {
+            return op[i].innerText;
+        }
+    }
+}
+
+//this Function add event listener to all Newly added Ingredients
+function ItemIngredientUpdate() {
+
+    document.querySelectorAll("#delete").forEach(btn => {
+        btn.onclick = function () {
+            let tt = this.dataset.ingredientid;
+            this.remove();
+            console.log("Ingredient Deleted", addedIngredient[tt]);
+            document.querySelector(`input[value="${tt}"]`).remove();
+            delete addedIngredient[tt];
+            IngredientListUpdate();
+        }
+    });
+    IngredientListUpdate()
+}
+
+function IngredientListUpdate() {
+    document.querySelectorAll("#ingredient-list-box .addIngredients").forEach(p => {
+        let tt = p.dataset.ingredientid;
+        if (tt in addedIngredient) {
+            console.log("Display None");
+            console.log(tt);
+            p.parentElement.style.display = "none";
+        }
+        else {
+            p.parentElement.style.display = "grid";
+        }
+    })
+}
+
+//This will add Ingredient of Item in Input list As well as Visual Display
+function addItemIngredient(addBtn) {
+
+    console.log(addBtn);
+    let id = addBtn.dataset.ingredientid;
+    let ingredient = addBtn.innerHTML;
+    console.log("Ingredient Name :- ", ingredient);
+    console.log("Ingredient Id :- ", id);
+
+    //Add Ingredient to Item form list
+    const input = document.createElement("input");
+    input.type = "number";
+    input.name = `ingredientId${ingredientCount}`;
+    input.defaultValue = id;
+    input.style.display = "none";
+
+    addedIngredient[id] = ingredient
+
+    document.getElementById("newIngredientHidden").appendChild(input);
+    ingredientCount++;
+
+    //add ingredient to visual list of Item ingredient
+    document.getElementById("itemIngredients").innerHTML += `
+        <div class="suggetion-list-item" data-ingredientId="${id}" id="delete">
+            <p class="text_style editIngredients"  data-queryItem="item_one">${ingredient}</p>
+            <button class="add button-remove" type="button" role="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M6 7H5v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7H6zm4 12H8v-9h2v9zm6 0h-2v-9h2v9zm.618-15L15 2H9L7.382 4H3v2h18V4z"></path>
+                </svg>
+            </button>
+        </div>
+    `;
+
+}
+
+
+function addFields(data) {
+    let updateField = document.getElementById("updateField");
+    data.forEach(div => {
+        for (let key in div) {
+            console.log("Key : " + key + "\nValue :- " + div[key]);
+            updateField.innerHTML += `<div class="form-element-box">
+                                        <label for=${key} class="from-lable">${key}</label>
+                                        <div class="form-control">
+                                            <input type="number" required class="from-element" value="${div[key]}" name=${key} id=${key} placeholder="Enter ${key} value">
+                                        </div>
+                                    </div>`;
+        }
+    })
+}
+
 
 function createSuggestions(data) {
 
