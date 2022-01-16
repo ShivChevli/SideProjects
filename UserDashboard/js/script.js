@@ -69,6 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 // })
             }
 
+            document.querySelector("#multi-section").style.display = "block";
+            document.querySelector("#single-section").style.display = "none";
             let tmp = document.getElementById("toolbox");
             if (tmp != undefined) {
                 tmp.style.display = "none";
