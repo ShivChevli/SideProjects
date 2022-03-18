@@ -30,7 +30,7 @@ class ClientDetail {
         this.peerPort = p;
     }
 
-    int getPeerPort() {
+    long getPeerPort() {
         return this.peerPort;
     }
 
@@ -47,6 +47,7 @@ class ClientDetail {
 public class SignalingServer {
     public static void main(String[] args) throws Exception {
         Server ser = new Server(5555);
+
     }
 }
 
@@ -74,24 +75,39 @@ class Server {
 
             parseData(receivePacket);
             sendDataToNewConnection(receivePacket);
-            updatePeerAboutConnection(receivePacket);
+            if (top > 0) {
+                updatePeerAboutConnection(receivePacket);
+            }
         }
     }
 
+    // Parse incomming data and store it in List
     void parseData(DatagramPacket receivePacket) {
         String tempStr = new String(receivePacket.getData());
+
+        // String Formated in from of server Listing port & Client TCP Port
         String split[] = tempStr.split("&");
-        int peerPort = Integer.parseInt(split[0]);
-        int serverPort = Integer.parseInt(split[1]);
+
+        // System.out.println("Length :- " + split.length);
+        System.out.println("Peer Port :- " + split[1]);
+        System.out.println("Server Port :- " + split[0]);
+        // for (int i = 0; i < split.length; i++) {
+        // System.out.println(i + ":- " + split[i]);
+        // }
+        // long peerPort = Long.parseLong(split[1].trim());
+        int peerPort = Integer.parseInt(split[1].trim());
+        int serverPort = Integer.parseInt(split[0]);
         nodeList[top].setPeerPort(peerPort);
         nodeList[top].setServerPort(serverPort);
         nodeList[top].setInetAddress(receivePacket.getAddress().getHostName());
         top++;
     }
 
+    // Send all avelable User data to Newly Connected Peer
     void sendDataToNewConnection(DatagramPacket receivePacket) throws Exception {
         String data = "";
         int i = 0;
+        // dataformat hostName1,PortNum1&hostName2,PortNum2&hostName3,portNum3&......
         for (i = 0; i < top; i++) {
             data = nodeList[i].getInetAddress() + "," + nodeList[i].getPeerPort() + "&";
         }
@@ -104,7 +120,7 @@ class Server {
 
     void updatePeerAboutConnection(DatagramPacket receivePacket) throws Exception {
         DatagramSocket ss = new DatagramSocket();
-        String data = nodeList[top - 1].getInetAddress() + "&" + nodeList[top - 1].getPeerPort();
+        String data = nodeList[top - 1].getInetAddress() + "," + nodeList[top - 1].getPeerPort();
         byte sendData[] = data.getBytes();
         int i = 0;
         for (i = 0; i < top - 1; i++) {

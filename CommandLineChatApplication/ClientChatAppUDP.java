@@ -82,10 +82,6 @@ public class ClientChatAppUDP {
 
                 System.out.print("> ");
                 str = br.readLine();
-                // System.out.println("========================= : Me
-                // :=======================");
-                // System.out.println("Msg : -" + str);
-                // System.out.println("=======================================================");
 
                 if (str.contains("close")) {
                     break;
