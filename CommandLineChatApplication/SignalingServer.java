@@ -59,7 +59,7 @@ class Server {
     DataInputStream dataInContinue;
     DataOutputStream dataOut;
     ClientDetail[] nodeList = new ClientDetail[SIZE];
-    int top = 0;
+    int top = -1;
 
     Server(int port) throws Exception {
         serverSocket = new DatagramSocket(port);
@@ -74,6 +74,7 @@ class Server {
             serverSocket.receive(receivePacket);
 
             parseData(receivePacket);
+            Thread.sleep(1000);
             sendDataToNewConnection(receivePacket);
             if (top > 0) {
                 updatePeerAboutConnection(receivePacket);
@@ -97,10 +98,11 @@ class Server {
         // long peerPort = Long.parseLong(split[1].trim());
         int peerPort = Integer.parseInt(split[1].trim());
         int serverPort = Integer.parseInt(split[0]);
+        top++;
+        nodeList[top] = new ClientDetail();
         nodeList[top].setPeerPort(peerPort);
         nodeList[top].setServerPort(serverPort);
         nodeList[top].setInetAddress(receivePacket.getAddress().getHostName());
-        top++;
     }
 
     // Send all avelable User data to Newly Connected Peer
@@ -111,19 +113,27 @@ class Server {
         for (i = 0; i < top; i++) {
             data = nodeList[i].getInetAddress() + "," + nodeList[i].getPeerPort() + "&";
         }
+
+        System.out.println("Data has been Send to " + receivePacket.getAddress() + "  :-  " + data);
         byte sendData[] = data.getBytes();
         DatagramSocket ss = new DatagramSocket();
-        DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, receivePacket.getSocketAddress());
+        DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length,
+                InetAddress.getByName(nodeList[top].getInetAddress()), nodeList[top].getServerPort());
         ss.send(sendPacket);
         ss.close();
     }
 
     void updatePeerAboutConnection(DatagramPacket receivePacket) throws Exception {
+
+        System.out.println("Update Peer ABout New Connection ");
+
         DatagramSocket ss = new DatagramSocket();
         String data = nodeList[top - 1].getInetAddress() + "," + nodeList[top - 1].getPeerPort();
         byte sendData[] = data.getBytes();
         int i = 0;
-        for (i = 0; i < top - 1; i++) {
+        for (i = 0; i <= top; i++) {
+            System.out.println("Updata Data Sent to " + InetAddress.getByName(nodeList[i].getInetAddress()) + " :-   "
+                    + nodeList[i].getServerPort());
             DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length,
                     InetAddress.getByName(nodeList[i].getInetAddress()), nodeList[i].getServerPort());
             ss.send(sendPacket);

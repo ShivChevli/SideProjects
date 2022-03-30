@@ -5,15 +5,32 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 public class ClientChatApp {
+
+    static final int SIZE = 20;
+    static PeerDetail peerList[] = new PeerDetail[SIZE];
+
     public static void main(String[] args) throws Exception {
-        final int SIZE = 20;
-        PeerDetail peerList[] = new PeerDetail[SIZE];
 
         ServerConnection conn = new ServerConnection(5559, peerList);
-        conn.run();
+        displayListOfActivateUser();
         while (true) {
 
         }
+
+    }
+
+    static void displayListOfActivateUser() {
+        int i = 0;
+        System.out.println("ALL activate User List");
+        while (peerList[i] != null && i < SIZE) {
+            System.out.println(i + ") " + peerList[i].displayDetail());
+            i++;
+        }
+
+    }
+
+    static void establizeConnection() {
+
     }
 }
 
@@ -21,9 +38,16 @@ class PeerDetail {
     String address;
     int port;
 
+    PeerDetail() {
+    }
+
     PeerDetail(String add, int p) {
         this.address = add;
         this.port = p;
+    }
+
+    String displayDetail() {
+        return this.address + " : " + this.port;
     }
 
     void setInetAddress(String add) {
@@ -64,6 +88,7 @@ class ServerConnection extends Thread {
         this.serverListenPort = serverSocket.getLocalPort();
         this.peerListenPort = peerListenPort;
         peerList = p;
+        run();
     }
 
     @Override
@@ -79,6 +104,7 @@ class ServerConnection extends Thread {
             serverSocket.send(pecket);
 
             while (true) {
+                System.out.println("data Recived From Servere");
                 DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
                 serverSocket.receive(receivePacket);
                 registerPeer(receivePacket);
@@ -86,23 +112,29 @@ class ServerConnection extends Thread {
 
         } catch (Exception e) {
             // TODO: handle exception
+            e.printStackTrace();
         }
     }
 
     void registerPeer(DatagramPacket receivePacket) {
         int i = 0;
         String tempStr = new String(receivePacket.getData());
-        System.out.println("New Connection Added to Server :- ");
+        System.out.println("New Connection Added to Server :- " + tempStr);
         String peerDataList[] = tempStr.split("&");
         String tempStr1[];
         for (i = 0; i < peerDataList.length; i++) {
             tempStr1 = peerDataList[i].split(",");
-            peerList[top].setInetAddress(tempStr1[0]);
-            peerList[top].setPeerPort(Integer.parseInt(tempStr1[1]));
+            if (tempStr1.length == 2) {
+                peerList[top] = new PeerDetail();
+                peerList[top].setInetAddress(tempStr1[0]);
+                peerList[top].setPeerPort(Integer.parseInt(tempStr1[1]));
 
-            System.out.println("Peer Port :- " + this.peerListenPort);
-            System.out.println("Server Port :- " + this.serverListenPort);
-            top++;
+                System.out.println("Peer Port :- " + this.peerListenPort);
+                System.out.println("Server Port :- " + this.serverListenPort);
+                top++;
+            } else {
+                System.out.println("No Data Has been Recived");
+            }
         }
     }
 
