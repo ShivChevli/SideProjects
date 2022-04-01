@@ -84,6 +84,8 @@ class Server {
 
     // Parse incomming data and store it in List
     void parseData(DatagramPacket receivePacket) {
+
+        System.out.println("Parse Data Called :- ");
         String tempStr = new String(receivePacket.getData());
 
         // String Formated in from of server Listing port & Client TCP Port
@@ -107,11 +109,14 @@ class Server {
 
     // Send all avelable User data to Newly Connected Peer
     void sendDataToNewConnection(DatagramPacket receivePacket) throws Exception {
+        System.out.println("Send Data to new Connection Called :- ");
+
         String data = "";
         int i = 0;
+
         // dataformat hostName1,PortNum1&hostName2,PortNum2&hostName3,portNum3&......
         for (i = 0; i < top; i++) {
-            data = nodeList[i].getInetAddress() + "," + nodeList[i].getPeerPort() + "&";
+            data += nodeList[i].getInetAddress() + "," + nodeList[i].getPeerPort() + "&";
         }
 
         System.out.println("Data has been Send to " + receivePacket.getAddress() + "  :-  " + data);
@@ -125,15 +130,15 @@ class Server {
 
     void updatePeerAboutConnection(DatagramPacket receivePacket) throws Exception {
 
-        System.out.println("Update Peer ABout New Connection ");
+        System.out.println("Update Peer ABout New Connection Called ");
 
         DatagramSocket ss = new DatagramSocket();
-        String data = nodeList[top - 1].getInetAddress() + "," + nodeList[top - 1].getPeerPort();
+        String data = nodeList[top].getInetAddress() + "," + nodeList[top].getPeerPort() + "&";
         byte sendData[] = data.getBytes();
         int i = 0;
-        for (i = 0; i <= top; i++) {
+        for (i = 0; i < top; i++) {
             System.out.println("Updata Data Sent to " + InetAddress.getByName(nodeList[i].getInetAddress()) + " :-   "
-                    + nodeList[i].getServerPort());
+                    + nodeList[i].getServerPort() + data);
             DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length,
                     InetAddress.getByName(nodeList[i].getInetAddress()), nodeList[i].getServerPort());
             ss.send(sendPacket);
