@@ -16,13 +16,15 @@ public class ClientChatApp {
 
     static final int SIZE = 20;
     static PeerDetail peerList[] = new PeerDetail[SIZE];
-    static PeerDetail watingQuea[] = new PeerDetail[SIZE];
+    static IncommingRequests watingQuea[] = new IncommingRequests[SIZE];
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static PeerConnectionServer tempPer;
 
     public static void main(String[] args) throws Exception {
 
         int choice = 0;
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        PeerConnectionServer tempPer = new PeerConnectionServer(watingQuea);
+        boolean incommingRequest = false;
+        tempPer = new PeerConnectionServer(watingQuea);
         Thread conn = new ServerConnection(tempPer.getPeerPort(), peerList);
         Thread peer = (Thread) tempPer;
         // Thread mainAction = new Action(peerList, watingQuea);
@@ -31,36 +33,58 @@ public class ClientChatApp {
         Thread.sleep(1000);
 
         do {
-            System.out.println("============================== Menue =============================");
-            System.out.println("1. List All Connection");
-            System.out.println("4. Exit");
-            System.out.print("Select Action : ");
-            try {
-                choice = Integer.parseInt(br.readLine().trim());
-            } catch (Exception e) {
-                // TODO: handle exception
-                System.out.println("Enter Only Number\n Try Again");
-                choice = 0;
-                continue;
-            }
+            if (watingQuea[0] == null) {
+                System.out.println("============================== Menue =============================");
+                System.out.println("1. List All Connection");
+                System.out.println("2. Connect to Peer");
+                System.out.println("4. Exit");
+                System.out.println("Wating Quea Length : " + watingQuea[0]);
+                System.out.print("Select Action : ");
+                try {
+                    choice = Integer.parseInt(br.readLine().trim());
+                } catch (Exception e) {
+                    // TODO: handle exception
+                    System.out.println("Enter Only Number\n Try Again");
+                    choice = 0;
+                    continue;
+                }
 
-            switch (choice) {
-                case 1:
-                    displayListOfActivateUser();
-                    break;
+                switch (choice) {
+                    case 1:
+                        displayListOfActivateUser();
+                        break;
+                    case 2:
+                        System.out.println("\n=========================================");
+                        System.out.println("Connect To peer");
+                        establizeConnection();
+                        break;
+                    case 4:
+                        System.out.println("Thank you");
+                        choice = 4;
+                        conn.interrupt();
+                        peer.interrupt();
+                        System.out.println("Servere Inteeupt :- " + conn.isInterrupted());
+                        System.out.println("Peer Inteeupt :- " + peer.isInterrupted());
+                        break;
 
-                case 4:
-                    System.out.println("Thank you");
-                    choice = 4;
-                    conn.interrupt();
-                    peer.interrupt();
-                    System.out.println("Servere Inteeupt :- " + conn.isInterrupted());
-                    System.out.println("Peer Inteeupt :- " + peer.isInterrupted());
-                    break;
-
-                default:
-                    System.out.println("Enter Valid Number");
-                    break;
+                    default:
+                        System.out.println("Enter Valid Number");
+                        break;
+                }
+            } else {
+                System.out.println("==============================================");
+                System.out.println("1. Accept ");
+                System.out.println("2. Decline ");
+                int dis = Integer.parseInt(br.readLine());
+                if (dis == 1) {
+                    System.out.flush();
+                    System.out.println("Peer Detail : " + watingQuea[0].getId());
+                    PeerChatConnection peerCon = new PeerChatConnection(peerList, tempPer.getPeerPort());
+                    peerCon.connect(watingQuea[0].getId(), watingQuea[0].getSocket());
+                } else {
+                    System.out.println("Decline Talk\n Continue TO Acpplication");
+                }
+                watingQuea[0] = null;
             }
 
         } while (choice != 4);
@@ -73,17 +97,26 @@ public class ClientChatApp {
 
     static void displayListOfActivateUser() {
         int i = 0;
-        System.out.println("============================================================");
+        System.out.println("\n============================================================");
         System.out.println("ALL activate User List");
         while (peerList[i] != null && i < SIZE) {
             System.out.println(peerList[i].displayDetail());
             i++;
         }
-
     }
 
-    static void establizeConnection() {
-
+    static void establizeConnection() throws Exception {
+        int id;
+        displayListOfActivateUser();
+        try {
+            id = Integer.parseInt(br.readLine());
+        } catch (Exception e) {
+            // TODO: handle exception
+            System.out.println("Enter Valid ID");
+            return;
+        }
+        PeerChatConnection peerCon = new PeerChatConnection(peerList, tempPer.getPeerPort());
+        peerCon.connect(id, null);
     }
 }
 
@@ -125,6 +158,30 @@ class PeerDetail {
 
     int getPeerPort() {
         return this.port;
+    }
+}
+
+class IncommingRequests {
+    private Socket s;
+    private int id;
+
+    IncommingRequests() {
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setSoket(Socket s) {
+        this.s = s;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public Socket getSocket() {
+        return s;
     }
 }
 
@@ -255,16 +312,18 @@ class ServerConnection extends Thread {
 }
 
 class PeerConnectionServer extends Thread {
-    PeerDetail incommingQuea[];
+    IncommingRequests incommingQuea[];
     ServerSocket peerSocket;
     Socket currentSocket;
     int serverListenPort, peerListenPort;
-    int top = 0;
+    int top = -1;
+
     DataInputStream dataIn;
     DataOutputStream dataOut;
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     // Register Itself to Signaling Server
-    PeerConnectionServer(PeerDetail p[]) throws Exception {
+    PeerConnectionServer(IncommingRequests p[]) throws Exception {
 
         try {
             this.peerSocket = new ServerSocket((int) Math.random() * 10000);
@@ -316,6 +375,10 @@ class PeerConnectionServer extends Thread {
 
             String data = dataIn.readUTF();
             System.out.println("Request String From Peer : " + data);
+            top++;
+            incommingQuea[top] = new IncommingRequests();
+            incommingQuea[top].setSoket(s);
+            incommingQuea[top].setId(Integer.parseInt(data));
 
         } catch (Exception e) {
             // TODO: handle exception
@@ -326,4 +389,106 @@ class PeerConnectionServer extends Thread {
 
     }
 
+}
+
+class PeerChatConnection {
+    PeerDetail activateUserList[];
+    Socket socket;
+    boolean close;
+    int userId, selfId;
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    DataInputStream dataIn;
+    DataOutputStream dataOut;
+
+    PeerChatConnection(PeerDetail[] p, int id) {
+        this.activateUserList = p;
+        this.selfId = id;
+    }
+
+    int findId(int id) {
+        int i = 0, num = -1;
+        while (this.activateUserList[i] != null && i < 20) {
+            if (this.activateUserList[i].id == id) {
+                num = i;
+                break;
+            }
+            i++;
+        }
+        return num;
+
+    }
+
+    int findIncommingUser(int port) {
+
+        int i = 0, num = -1;
+        while (this.activateUserList[i] != null && i < 20) {
+            if (this.activateUserList[i].port == port) {
+                num = i;
+                break;
+            }
+            i++;
+        }
+        return num;
+    }
+
+    void connect(int id, Socket s) throws Exception {
+
+        int num = -1;
+        close = false;
+        if (s == null) {
+            System.out.println("Id :- " + id);
+            System.out.println("Scoket :- " + s);
+
+            userId = findId(id);
+            if (userId == -1) {
+                System.out.println("User does not Found");
+                return;
+            }
+            socket = new Socket(InetAddress.getByName(activateUserList[userId].getInetAddress()),
+                    activateUserList[userId].getPeerPort());
+            dataOut = new DataOutputStream(socket.getOutputStream());
+            dataOut.writeUTF(this.selfId + "");
+        } else {
+            userId = findIncommingUser(id);
+            socket = s;
+        }
+        dataOut = new DataOutputStream(socket.getOutputStream());
+        String str;
+
+        // anonymous class for Continue Listing for Connection
+        new Thread() {
+            public void run() {
+                try {
+                    dataIn = new DataInputStream(socket.getInputStream());
+                    String userDetail = activateUserList[userId].getId() + activateUserList[userId].getPeerPort() + "";
+                    String str;
+                    while (true) {
+                        str = new String(dataIn.readUTF());
+                        if (str.equalsIgnoreCase("fin")) {
+                            close = true;
+                            System.out.println("Connection Closed");
+                            break;
+                        }
+                        System.out.print(userDetail + " : " + str + "\n> ");
+                    }
+                } catch (Exception e) {
+                    // TODO: handle exception
+                    System.out.println("Somthing went Wrong");
+                }
+            };
+        }.start();
+        while (true && !close) {
+            System.out.print("> ");
+            str = br.readLine().trim();
+            if (str.equalsIgnoreCase("fin")) {
+                dataOut.writeUTF("FIN");
+                break;
+            }
+            dataOut.writeUTF(str);
+        }
+        System.out.println("Chat Connection Close ");
+        Thread.sleep(500);
+
+        socket.close();
+    }
 }
