@@ -85,11 +85,11 @@ footer {
 
 .btn {
     background: transparent;
-    font-weight: 700;
+    font-weight: 600;
     /* display: block; */
-    margin: 10px;
-    font-size: 13px;
-    padding: 10px;
+    /* margin: 10px; */
+    font-size: 12px;
+    padding: 5px 7px;
     color: #00f;
     border: 2px solid #00f;
     border-radius: 5px;

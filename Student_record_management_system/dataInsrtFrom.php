@@ -24,15 +24,16 @@
         $WP = 0;
         $name="";
         $target = "insertDb.php";
-        $title = "Insert ";
+        $title = "Insert";
 
         if(isset($_GET["id"])){
             require_once("connection.php");
             $id = $_GET["id"];
-            $sql = "SELECT * FROM studet_record WHERE `enrollment_no`=".$_GET["id"].";";
+            $sql = "SELECT * FROM `student_record` WHERE `enrollment_no`=".$_GET["id"];
             $res = $con->query($sql);
             if($row = $res->fetch_array()){
                 // echo "Data Fetch";
+                $enroll_no = $_GET["id"];
                 $name = $row["name"];
                 $AJP = $row["AJP"];
                 $TOC = $row["TOC"];
@@ -47,7 +48,11 @@
         // echo "$id : $name : $department : $designation";
     ?>
     <main>
-        <h1> <?= $title ?> Student Record </h1>
+        <h1> <?= $title ?> Student Record <?php 
+            if($enroll_no != 0){
+                echo "for Enrollment Number " . $enroll_no;
+            }
+        ?></h1>
         <form method="post" action="<?= $target ?>">
 
             <div style="display: 
@@ -59,7 +64,7 @@
                         echo "block";
                     }
                 ?>
-            ">
+            ;">
                 <label for="enroll_no">Enrollment Number : </label>
                 <input type="number" name="enroll_no" value="<?= $enroll_no ?>"> <br>
             </div>
