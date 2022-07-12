@@ -1,3 +1,55 @@
+
+# Student Record Management System
+
+This project is demonstration of PHP laravel framwok and Vuejs. tech stack use in this Project is PHP laravel for backend , Vuejs for frontend and Mysql as database. 
+
+# Project Requriment 
+
+- PHP version 8.1
+- Composer 
+- Mysql 
+- Node js 
+
+# Stpes to setp locally 
+
+1. Clone this reposetory 
+```bash
+git clone 
+cd
+```
+
+2. Install dependenced
+```
+composer install 
+npm install 
+```
+
+3. Create Database with name mysql 
+you can use eigther way by using phpmyadmin or Mysql command line
+for command line use following command 
+```cmd
+mysql -u root 
+CREATE DATABASE `student-registration-domo`;
+``` 
+
+4. Migrate Model files to Database 
+```cmd
+php artisan migrate 
+```
+
+5. Buid Front end using NPM 
+```cmd
+npm run dev 
+```
+
+6. Run Development Server
+```cmd
+php artisan serve 
+``` 
+
+7. Navigate to url http://127.0.0.1:8000 to Intract with system. 
+
+<!-- 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
@@ -61,4 +113,4 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT). -->
