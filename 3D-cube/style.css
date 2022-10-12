@@ -17,11 +17,11 @@ main {
 .cube-container {
     width: 150px;
     height: 150px;
-    box-shadow: 5px 10px 15px #000;
-    /* background: #202020; */
+    filter: drop-shadow(10px 10px 10px gray);
     background: #000;
     position: relative;
-    transform: rotateX(10deg);
+    transform-origin: top;
+    transform-style: preserve-3d;
     animation: animation1 5s linear infinite;
 }
 
@@ -60,8 +60,6 @@ main {
     width: 60px;
     height: 100%;
     background: #202020;
-    /* background: #000; */
-    box-shadow: 0px 10px 15px #000;
     transform-origin: left;
     transform: perspective(1000px) skew(0deg, -45deg);
 }
