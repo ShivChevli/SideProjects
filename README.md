@@ -8,7 +8,7 @@ List Of Projects :-
 <ul>
     <li><a href="https://github.com/ShivChevli/SideProjects/tree/main/student-management-system">Student management System Using Laravel and Vuejs </a></li> 
     <li><a href="https://shivchevli.github.io/SideProjects/WebCalculator/">Web calculator</a></li>
-    <li><a href="https://github.com/ShivChevli/SideProjects/tree/main/TodoApp">ToDo List</a></li>
+    <li><a href="https://shivchevli.github.io/SideProjects/TodoApp/">ToDo List</a></li>
     <li><a href="https://shivchevli.github.io/SideProjects/3D-RotatingCard/"> 3D-RotatingCard</a></li>
     <li><a href="https://shivchevli.github.io/SideProjects/ColorPaletteGenretor/">Color Palette Generator</a></li>
     <li><a href="https://shivchevli.github.io/SideProjects/ReadPrograssJS/">Read Prograss indicator using JS</a></li>
