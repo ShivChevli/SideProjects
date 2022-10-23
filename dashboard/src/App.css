@@ -1,0 +1,69 @@
+button {
+  position: relative;
+  cursor: pointer;
+}
+
+/* button:active::after {
+  content: "";
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10rem;
+  background-color: rgba(0, 0, 0, .4);
+} */
+
+.Button-btn {
+  padding: 10px 20px;
+  border-radius: 10rem;
+  font-weight: 600;
+  color: black;
+}
+
+.Button-btn:active {
+  color: #fff;
+  background: #000000df;
+}
+
+.Button-btn-outline {
+  background: transparent;
+  border: 2px solid #000;
+}
+
+.Button-btn-outline:hover {
+  color: #fff;
+  background: #000000df;
+}
+
+/* 
+  Orange Button 
+*/
+.Button-btn-orange {
+  background: #fcbc30;
+  color: #fff;
+  border: none;
+}
+
+.Button-btn-orange:active {
+  background: #fcbc30df;
+  color: #fff;
+  border: none;
+}
+
+.Button-btn-orange-outline {
+  background: transparent;
+  color: #000;
+  border: 2px solid #fcbc30;
+}
+
+.Button-btn-orange-outline:hover {
+  background-color: #fcbb30df;
+  color: #fff;
+}
+
+.Button-btn-orange-outline:active {
+  background-color: #fcbb30c8;
+  color: #fff;
+}
