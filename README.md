@@ -13,4 +13,5 @@ List Of Projects :-
     <li><a href="https://shivchevli.github.io/SideProjects/ColorPaletteGenretor/">Color Palette Generator</a></li>
     <li><a href="https://shivchevli.github.io/SideProjects/ReadPrograssJS/">Read Prograss indicator using JS</a></li>
     <li><a href="https://shivchevli.github.io/SideProjects/First_website/">First Website</a></li>
+    <li><a href="https://shivchevli.github.io/SideProjects/Tic_tac_toe_Game/">Tic Tac Toe Game</a></li>
 </ul>
