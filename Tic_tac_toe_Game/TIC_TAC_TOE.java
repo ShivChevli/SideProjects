@@ -20,32 +20,41 @@ public class TIC_TAC_TOE {
     }
 
     void play() {
+
         int board[] = new int[9];
-        printBord(board);
+        // printBord(board, true);
         System.out.println("System O and User X");
-        printBord(board);
+        printBord(board, true);
         int player = 1;
         for (int i = 0; i < 9; i++) {
             if (anylizeBoard(board) != 0) {
                 break;
             }
             if ((i + player) % 2 == 0) {
+                System.out.println("======================================================");
                 System.out.println("System's Turn ");
                 compTurn(board);
             } else {
+                System.out.println("======================================================");
                 System.out.println("User's Turn ");
                 getUserInput(board);
             }
-            printBord(board);
+            printBord(board, false);
         }
-        printBord(board);
+        printBord(board, false);
         int x = anylizeBoard(board);
         if (x == 0) {
+            System.out.println("\n\n======================================================");
             System.out.println("Match drow");
+            System.out.println("======================================================");
         } else if (x == 1) {
+            System.out.println("\n\n======================================================");
             System.out.println("System(O) wins!!!!!! and User(X) loose!!!!");
+            System.out.println("======================================================");
         } else {
+            System.out.println("\n\n======================================================");
             System.out.println("User(X) wins!!!!!! and System(O) loose!!!!");
+            System.out.println("======================================================");
         }
     }
 
@@ -115,14 +124,14 @@ public class TIC_TAC_TOE {
         b[pos] = 1;
     }
 
-    void printBord(int board[]) {
+    void printBord(int board[], boolean mark) {
         System.out.println("======================================================");
         for (int i = 0; i < 9; i++) {
             if (i > 0 && (i % 3) == 0) {
                 System.out.print("\n");
             }
             if (board[i] == 0) {
-                System.out.print((i + 1) + " ");
+                System.out.print(mark ? (i + 1) + " " : "- ");
             }
             if (board[i] == 1) {
                 System.out.print("O ");
@@ -130,7 +139,7 @@ public class TIC_TAC_TOE {
                 System.out.print("X ");
             }
         }
-        System.out.println("\n\n");
+        System.out.println("");
     }
 
     void getUserInput(int board[]) {

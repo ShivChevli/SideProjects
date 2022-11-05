@@ -6,17 +6,13 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-/**
- * P7_TRY_1
- */
 public class Min_Max {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Node graphRootNode = null;
         Min_Max obj = new Min_Max();
         try {
             graphRootNode = obj.getGraph();
         } catch (Exception e) {
-            // TODO: handle exception
             System.out.println("Somthing went wrong ");
         }
 
@@ -42,14 +38,12 @@ public class Min_Max {
         }
         int size = tmpQue.size();
         if (size == 0) {
-            // System.out.println("return count at level " + graph.getLevel());
             returnValue = graph.getCost();
             graph.setTempCost(returnValue);
             graph.setAns(true);
         } else {
             if (isMin) {
                 isMin = !isMin;
-                // System.out.println("get on Min count at level " + graph.getLevel());
                 trackerNode = tmpQue.get(0);
                 for (int i = 0; i < size; i++) {
                     tmpNode = tmpQue.get(i);
@@ -62,12 +56,8 @@ public class Min_Max {
                     }
                 }
                 graph.setNextNode(trackerNode);
-                // System.out.println("=================================================");
-                // System.out.println("Min value count " + returnValue + " at level " +
-                // graph.getLevel());
             } else {
                 isMin = !isMin;
-                // System.out.println("get on max count at level " + graph.getLevel());
                 trackerNode = tmpQue.get(0);
                 for (int i = 0; i < size; i++) {
                     tmpNode = tmpQue.get(i);
@@ -80,10 +70,6 @@ public class Min_Max {
                     }
                 }
                 graph.setNextNode(trackerNode);
-                // System.out.println("=================================================");
-                // System.out.println("Max value count " + returnValue + " at level " +
-                // graph.getLevel());
-
             }
         }
         return returnValue;
@@ -142,9 +128,6 @@ public class Min_Max {
         Node traker = null;
         while (que != null && !que.isEmpty()) {
             traker = que.remove();
-            // System.out.println("Node : " + traker.getName());
-            // System.out.println("Node cost : " + traker.getCost());
-            // System.out.println("Node Level : " + traker.getLevel());
             childeList = traker.getChild();
             size = childeList.size();
             for (int i = 0; i < size; i++) {
