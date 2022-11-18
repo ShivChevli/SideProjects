@@ -1,5 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", function () {
+    disablePlay(false);
     let board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     let isX = true;
     document.querySelectorAll(".board-cell").forEach((el) => {
@@ -106,6 +107,7 @@ const btnClick = (el, board, isX) => {
         } else {
             announceSroce("User(X) wins!!!!!! ");
         }
+        disablePlay(true);
     }
 }
 
@@ -132,7 +134,19 @@ const getBoardValue = (board) => {
 const announceSroce = (msg) => {
     alert(msg)
 }
+
+const disablePlay = (isTrue) => {
+    let cover = document.querySelector(".board");
+    cover.style.setProperty("--display", isTrue ? "block" : "none");
+    isTrue ? cover.addEventListener("click", info) : cover.removeEventListener("click", info);
+
+}
+
+const info = () => {
+    announceSroce("Game is Over \nStart new game by clicking reset button", false);
+}
 const resetBoard = (board) => {
     board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     setBoardValue(board);
+    disablePlay(false);
 }
